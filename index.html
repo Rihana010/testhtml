@@ -4,9 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARC ONE — Designed to Disappear</title>
+
+<title>ARC — Make It Yours</title>
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -19,43 +25,55 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #0b0b0b;
-    color: #f2f2f2;
+    background: #f5f5f2;
+    color: #111;
     overflow-x: hidden;
 }
 
+button,
 a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button {
     font: inherit;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+button {
+    cursor: pointer;
+}
 
-nav {
-    height: 72px;
-    padding: 0 6vw;
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    height: 70px;
+    padding: 0 5vw;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
+
     z-index: 1000;
-    background: rgba(11, 11, 11, 0.88);
-    border-bottom: 1px solid #222;
-    backdrop-filter: blur(14px);
+
+    background: rgba(245,245,242,.88);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid #ddd;
 }
 
 .logo {
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: -1px;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -2px;
 }
 
 .logo span {
@@ -64,676 +82,1188 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 34px;
+    gap: 32px;
+
     font-size: 13px;
-    color: #aaa;
+    color: #555;
 }
 
 .nav-links a {
-    transition: 0.25s;
+    transition: .25s;
 }
 
 .nav-links a:hover {
+    color: #000;
+}
+
+.nav-button {
+    padding: 10px 19px;
+
+    background: #111;
     color: white;
-}
 
-.nav-buy {
-    border: 1px solid #555;
-    padding: 10px 18px;
     border-radius: 30px;
-    transition: 0.25s;
+
+    font-size: 12px;
+
+    transition: .25s;
 }
 
-.nav-buy:hover {
-    background: white;
-    color: black;
-    border-color: white;
+.nav-button:hover {
+    transform: scale(1.05);
 }
 
-/* =========================
+
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero {
     min-height: 100vh;
-    padding: 150px 7vw 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
+
+    padding: 150px 6vw 70px;
+
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+
+    align-items: center;
+
+    gap: 50px;
+
     overflow: hidden;
 }
 
-.hero::before {
-    content: "01";
-    position: absolute;
-    right: 7vw;
-    top: 150px;
-    font-size: 180px;
-    font-weight: 900;
-    color: #111;
-    z-index: -1;
-}
-
-.eyebrow {
-    color: #777;
+.hero-small {
     font-size: 12px;
     letter-spacing: 4px;
-    text-transform: uppercase;
+    color: #777;
+
     margin-bottom: 25px;
 }
 
 .hero h1 {
-    font-size: clamp(65px, 12vw, 170px);
-    line-height: 0.82;
+    font-size: clamp(65px, 10vw, 150px);
+
+    line-height: .78;
+
     letter-spacing: -9px;
-    max-width: 1000px;
+
+    max-width: 800px;
 }
 
 .hero h1 span {
-    color: #777;
+    color: #d83a2f;
 }
 
-.hero-description {
+.hero-text {
+    margin-top: 35px;
+
     max-width: 480px;
-    margin-top: 40px;
-    font-size: 18px;
-    line-height: 1.6;
-    color: #999;
-}
 
-.hero-actions {
-    display: flex;
-    gap: 15px;
-    margin-top: 40px;
-}
-
-.btn {
-    padding: 15px 24px;
-    border-radius: 4px;
-    border: 1px solid #444;
-    background: transparent;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: white;
-    color: black;
-}
-
-.btn-primary {
-    background: white;
-    color: black;
-    border-color: white;
-}
-
-.btn-primary:hover {
-    background: #ccc;
-}
-
-/* =========================
-   PRODUCT STAGE
-========================= */
-
-.product-stage {
-    min-height: 100vh;
-    background: #111;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 100px 8vw;
-    gap: 60px;
-}
-
-.product-copy .number {
-    font-size: 13px;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.product-copy h2 {
-    font-size: clamp(50px, 7vw, 100px);
-    letter-spacing: -5px;
-    line-height: 0.9;
-}
-
-.product-copy h2 span {
     color: #666;
-}
 
-.product-copy p {
-    color: #888;
+    font-size: 17px;
+
     line-height: 1.7;
-    max-width: 450px;
-    margin-top: 30px;
 }
 
-.spec-line {
-    margin-top: 40px;
-    border-top: 1px solid #292929;
-    padding-top: 20px;
+.hero-buttons {
     display: flex;
-    gap: 50px;
+
+    gap: 12px;
+
+    margin-top: 35px;
 }
 
-.spec strong {
-    display: block;
-    font-size: 25px;
+.hero-button {
+    padding: 15px 24px;
+
+    border-radius: 30px;
+
+    border: 1px solid #222;
+
+    background: transparent;
+
+    transition: .25s;
 }
 
-.spec small {
-    color: #666;
-    font-size: 11px;
-}
-
-/* PHONE */
-
-.phone-area {
-    height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 1000px;
-}
-
-.phone {
-    width: 270px;
-    height: 540px;
-    border-radius: 40px;
-    background: #181818;
-    border: 5px solid #292929;
-    position: relative;
-    box-shadow:
-        0 0 0 2px #080808,
-        30px 40px 100px rgba(0,0,0,0.8);
-    transform: rotateY(-12deg) rotateX(5deg);
-    transition: 0.7s;
-}
-
-.phone:hover {
-    transform: rotateY(0deg) rotateX(0deg) translateY(-12px);
-}
-
-.phone::before {
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 75px;
-    height: 22px;
-    background: #050505;
-    border-radius: 20px;
-    z-index: 5;
-}
-
-.phone-screen {
-    position: absolute;
-    inset: 5px;
-    border-radius: 35px;
-    overflow: hidden;
-    background: #0d0d0d;
-}
-
-.screen-time {
-    position: absolute;
-    top: 55px;
-    left: 25px;
-    font-size: 12px;
-    color: #888;
-}
-
-.screen-word {
-    position: absolute;
-    bottom: 65px;
-    left: 25px;
-    font-size: 55px;
-    font-weight: 800;
-    line-height: 0.8;
-    letter-spacing: -4px;
-}
-
-.screen-word span {
-    color: #555;
-}
-
-.camera {
-    position: absolute;
-    width: 85px;
-    height: 85px;
+.hero-button:hover {
     background: #111;
-    border-radius: 25px;
-    top: 25px;
-    left: 25px;
-    border: 2px solid #333;
+    color: white;
 }
 
-.lens {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #050505;
-    border: 3px solid #444;
+.hero-button.primary {
+    background: #111;
+    color: white;
+}
+
+
+/* =====================================================
+   HERO IMAGE
+===================================================== */
+
+.hero-image {
+    height: 650px;
+
+    position: relative;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    background: #ddd;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 1s;
+}
+
+.hero-image:hover img {
+    transform: scale(1.05);
+}
+
+.hero-label {
     position: absolute;
+
+    bottom: 25px;
+    left: 25px;
+
+    padding: 12px 17px;
+
+    background: rgba(255,255,255,.9);
+
+    border-radius: 30px;
+
+    font-size: 12px;
+
+    backdrop-filter: blur(10px);
 }
 
-.lens.one {
-    top: 12px;
-    left: 12px;
+
+/* =====================================================
+   MARQUEE
+===================================================== */
+
+.marquee {
+    overflow: hidden;
+
+    background: #111;
+    color: white;
+
+    padding: 22px 0;
+
+    white-space: nowrap;
 }
 
-.lens.two {
-    top: 12px;
-    right: 12px;
+.marquee-track {
+    display: inline-block;
+
+    animation: marquee 22s linear infinite;
+
+    font-size: 25px;
+    font-weight: 800;
+
+    letter-spacing: -1px;
 }
 
-.lens.three {
-    bottom: 12px;
-    left: 12px;
+@keyframes marquee {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
 }
 
-/* =========================
-   STATEMENT
-========================= */
 
-.statement {
-    min-height: 75vh;
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+.products {
+    padding: 130px 6vw;
+}
+
+.section-top {
     display: flex;
-    align-items: center;
-    padding: 100px 8vw;
-    border-top: 1px solid #202020;
-    border-bottom: 1px solid #202020;
-}
 
-.statement h2 {
-    font-size: clamp(45px, 8vw, 110px);
-    line-height: 0.95;
-    letter-spacing: -6px;
-    max-width: 1200px;
-}
+    justify-content: space-between;
 
-.statement h2 span {
-    color: #555;
-}
+    align-items: end;
 
-/* =========================
-   FEATURES
-========================= */
-
-.features {
-    padding: 120px 8vw;
-    background: #f1f1ed;
-    color: #111;
+    margin-bottom: 60px;
 }
 
 .section-label {
     font-size: 11px;
+
     letter-spacing: 3px;
-    color: #777;
-    text-transform: uppercase;
-    margin-bottom: 60px;
-}
 
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid #ccc;
-}
-
-.feature {
-    padding: 40px 30px 40px 0;
-    border-right: 1px solid #ccc;
-    margin-right: 30px;
-}
-
-.feature:last-child {
-    border-right: none;
-}
-
-.feature-number {
-    font-size: 12px;
     color: #888;
-}
 
-.feature h3 {
-    font-size: 34px;
-    margin: 70px 0 20px;
-    letter-spacing: -2px;
-}
-
-.feature p {
-    color: #666;
-    line-height: 1.7;
-}
-
-/* =========================
-   CUSTOMIZER
-========================= */
-
-.customize {
-    padding: 120px 8vw;
-    background: #0d0d0d;
-}
-
-.customize-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    margin-bottom: 70px;
-}
-
-.customize h2 {
-    font-size: clamp(50px, 7vw, 90px);
-    letter-spacing: -5px;
-}
-
-.price {
-    font-size: 30px;
-}
-
-.customizer-box {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-}
-
-.option-title {
-    color: #666;
-    font-size: 11px;
-    letter-spacing: 3px;
     text-transform: uppercase;
-    margin-bottom: 20px;
+
+    margin-bottom: 15px;
 }
 
-.options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 50px;
+.section-title {
+    font-size: clamp(50px, 7vw, 95px);
+
+    letter-spacing: -6px;
+
+    line-height: .85;
 }
 
-.option {
-    padding: 16px 22px;
-    border: 1px solid #333;
-    background: transparent;
-    color: #aaa;
-    cursor: pointer;
-    transition: 0.25s;
+.section-description {
+    max-width: 360px;
+
+    color: #777;
+
+    line-height: 1.6;
 }
 
-.option:hover,
-.option.active {
-    border-color: white;
+
+/* =====================================================
+   PRODUCT GRID
+===================================================== */
+
+.product-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+}
+
+.product-card {
+
+    position: relative;
+
+    min-height: 570px;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    color: white;
+
+    background: #222;
+
+    transition: .4s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+}
+
+.product-card.large {
+    grid-row: span 2;
+    min-height: 800px;
+}
+
+.product-card img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    position: absolute;
+
+    inset: 0;
+
+    transition: .7s;
+}
+
+.product-card:hover img {
+    transform: scale(1.06);
+}
+
+.product-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.8),
+            transparent 60%
+        );
+}
+
+.product-info {
+
+    position: absolute;
+
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+
+    z-index: 2;
+}
+
+.product-info h3 {
+
+    font-size: 50px;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 8px;
+
+}
+
+.product-info p {
+
+    color: #ddd;
+
+    line-height: 1.5;
+
+}
+
+.product-price {
+
+    margin-top: 18px;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   PRODUCT SELECTOR
+===================================================== */
+
+.selector {
+
+    padding: 120px 6vw;
+
+    background: #111;
+
     color: white;
 }
 
-.buy-large {
-    width: 100%;
-    padding: 20px;
-    background: white;
-    color: black;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
+.selector-wrapper {
 
-.buy-large:hover {
-    background: #ccc;
-}
+    display: grid;
 
-/* =========================
-   FINAL CTA
-========================= */
+    grid-template-columns: 1fr 1fr;
 
-.final {
-    min-height: 75vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    gap: 80px;
+
     align-items: center;
-    text-align: center;
-    padding: 100px 20px;
-    border-top: 1px solid #222;
+
 }
 
-.final h2 {
-    font-size: clamp(60px, 11vw, 150px);
-    letter-spacing: -9px;
-    line-height: 0.8;
+.selector-image {
+
+    height: 650px;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    position: relative;
+
 }
 
-.final p {
+.selector-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .5s;
+
+}
+
+.selector-content h2 {
+
+    font-size: clamp(55px, 7vw, 100px);
+
+    letter-spacing: -6px;
+
+    line-height: .85;
+
+}
+
+.selector-content > p {
+
+    margin-top: 25px;
+
+    color: #888;
+
+    line-height: 1.6;
+
+    max-width: 450px;
+
+}
+
+
+/* COLORS */
+
+.color-title {
+
+    margin-top: 50px;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #666;
+
+}
+
+.colors {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 18px;
+
+}
+
+.color {
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    border: 3px solid #111;
+
+    outline: 1px solid #444;
+
+    transition: .25s;
+
+}
+
+.color:hover,
+.color.active {
+
+    outline: 2px solid white;
+
+    transform: scale(1.12);
+
+}
+
+.color.black {
+    background: #171717;
+}
+
+.color.blue {
+    background: #315bff;
+}
+
+.color.red {
+    background: #d6332e;
+}
+
+.color.green {
+    background: #416c54;
+}
+
+.color.gold {
+    background: #d2ae6d;
+}
+
+.color.silver {
+    background: #c9c9c5;
+}
+
+
+/* STORAGE */
+
+.storage {
+
     margin-top: 35px;
-    color: #777;
+
+    display: flex;
+
+    gap: 10px;
+
 }
 
-/* =========================
+.storage button {
+
+    padding: 13px 20px;
+
+    border: 1px solid #333;
+
+    background: transparent;
+
+    color: #888;
+
+    border-radius: 5px;
+
+}
+
+.storage button.active,
+.storage button:hover {
+
+    color: white;
+
+    border-color: white;
+
+}
+
+.selected-price {
+
+    font-size: 35px;
+
+    margin-top: 35px;
+
+}
+
+.order {
+
+    width: 100%;
+
+    padding: 18px;
+
+    margin-top: 25px;
+
+    border: none;
+
+    background: white;
+
+    color: black;
+
+    font-weight: bold;
+
+    border-radius: 4px;
+
+    transition: .25s;
+
+}
+
+.order:hover {
+
+    background: #ddd;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =====================================================
+   COLORS SECTION
+===================================================== */
+
+.color-showcase {
+
+    padding: 130px 6vw;
+
+}
+
+.color-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 60px;
+
+}
+
+.color-card {
+
+    height: 380px;
+
+    border-radius: 20px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .4s;
+
+}
+
+.color-card:hover {
+
+    transform: translateY(-10px);
+
+}
+
+.color-card img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+.color-name {
+
+    position: absolute;
+
+    bottom: 20px;
+    left: 20px;
+
+    background: rgba(255,255,255,.9);
+
+    padding: 10px 15px;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   FEATURE SPLIT
+===================================================== */
+
+.feature {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 700px;
+
+}
+
+.feature-image {
+
+    overflow: hidden;
+
+}
+
+.feature-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .7s;
+
+}
+
+.feature:hover img {
+
+    transform: scale(1.04);
+
+}
+
+.feature-content {
+
+    padding: 100px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: #dce5ff;
+
+}
+
+.feature-content h2 {
+
+    font-size: clamp(50px, 7vw, 100px);
+
+    letter-spacing: -6px;
+
+    line-height: .85;
+
+}
+
+.feature-content p {
+
+    max-width: 450px;
+
+    margin-top: 30px;
+
+    color: #555;
+
+    line-height: 1.7;
+
+}
+
+
+/* =====================================================
+   SPECS
+===================================================== */
+
+.specs {
+
+    background: #f5f5f2;
+
+    padding: 130px 6vw;
+
+}
+
+.spec-table {
+
+    margin-top: 60px;
+
+    border-top: 1px solid #ccc;
+
+}
+
+.spec-row {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    padding: 25px 0;
+
+    border-bottom: 1px solid #ccc;
+
+}
+
+.spec-row span:first-child {
+
+    color: #888;
+
+}
+
+.spec-row span:last-child {
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta {
+
+    min-height: 80vh;
+
+    padding: 100px 6vw;
+
+    background: #d93630;
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+.cta small {
+
+    letter-spacing: 4px;
+
+    margin-bottom: 30px;
+
+}
+
+.cta h2 {
+
+    font-size: clamp(65px, 12vw, 170px);
+
+    letter-spacing: -10px;
+
+    line-height: .78;
+
+}
+
+.cta p {
+
+    max-width: 450px;
+
+    margin-top: 35px;
+
+    color: #ffd9d7;
+
+    line-height: 1.6;
+
+}
+
+.cta button {
+
+    width: fit-content;
+
+    margin-top: 35px;
+
+    padding: 16px 27px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #111;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 footer {
-    border-top: 1px solid #222;
-    padding: 35px 7vw;
+
+    background: #111;
+
+    color: white;
+
+    padding: 70px 6vw;
+
+}
+
+.footer-top {
+
     display: flex;
+
     justify-content: space-between;
-    color: #555;
-    font-size: 12px;
+
+    align-items: start;
+
 }
 
-/* =========================
-   MESSAGE
-========================= */
+.footer-logo {
 
-.message {
-    position: fixed;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    background: white;
-    color: black;
-    padding: 15px 25px;
-    border-radius: 3px;
+    font-size: 40px;
+
+    font-weight: 900;
+
+    letter-spacing: -3px;
+
+}
+
+.footer-links {
+
+    display: flex;
+
+    gap: 50px;
+
+}
+
+.footer-column h4 {
+
+    color: #666;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+
+}
+
+.footer-column a {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #aaa;
+
     font-size: 13px;
-    z-index: 2000;
-    transition: 0.4s;
+
 }
 
-.message.show {
-    transform: translateX(-50%) translateY(0);
+.footer-bottom {
+
+    border-top: 1px solid #292929;
+
+    margin-top: 70px;
+
+    padding-top: 20px;
+
+    color: #555;
+
+    font-size: 12px;
+
 }
 
-/* =========================
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast {
+
+    position: fixed;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    transform: translate(-50%, 100px);
+
+    background: white;
+
+    color: black;
+
+    padding: 15px 25px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    z-index: 3000;
+
+    transition: .4s;
+
+    box-shadow: 0 10px 40px rgba(0,0,0,.25);
+
+}
+
+.toast.show {
+
+    transform: translate(-50%, 0);
+
+}
+
+
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
-@media (max-width: 800px) {
-
-    nav {
-        padding: 0 5vw;
-    }
+@media(max-width: 850px) {
 
     .nav-links {
         display: none;
     }
 
     .hero {
-        padding: 130px 6vw 70px;
-    }
 
-    .hero h1 {
-        letter-spacing: -5px;
-    }
-
-    .hero::before {
-        font-size: 100px;
-    }
-
-    .product-stage {
         grid-template-columns: 1fr;
-        padding: 80px 6vw;
+
+        padding-top: 120px;
+
     }
 
-    .phone-area {
+    .hero-image {
+
         height: 500px;
+
     }
 
-    .statement {
-        padding: 80px 6vw;
+    .section-top {
+
+        display: block;
+
     }
 
-    .statement h2 {
-        letter-spacing: -4px;
+    .section-description {
+
+        margin-top: 25px;
+
     }
 
-    .feature-grid {
+    .product-grid {
+
         grid-template-columns: 1fr;
+
+    }
+
+    .product-card.large {
+
+        grid-row: auto;
+
+        min-height: 600px;
+
+    }
+
+    .selector-wrapper {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .selector-image {
+
+        height: 500px;
+
+    }
+
+    .color-grid {
+
+        grid-template-columns: 1fr 1fr;
+
     }
 
     .feature {
-        border-right: none;
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 50px;
-        margin-right: 0;
-    }
 
-    .customize {
-        padding: 80px 6vw;
-    }
-
-    .customize-header {
-        display: block;
-    }
-
-    .price {
-        margin-top: 25px;
-    }
-
-    .customizer-box {
         grid-template-columns: 1fr;
-        gap: 20px;
+
     }
 
-    footer {
-        flex-direction: column;
-        gap: 10px;
+    .feature-image {
+
+        height: 500px;
+
     }
+
+    .feature-content {
+
+        padding: 70px 6vw;
+
+    }
+
+    .footer-top {
+
+        flex-direction: column;
+
+        gap: 50px;
+
+    }
+
+    .footer-links {
+
+        flex-wrap: wrap;
+
+        gap: 35px;
+
+    }
+
 }
+
+@media(max-width: 500px) {
+
+    .hero h1 {
+
+        letter-spacing: -5px;
+
+    }
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+    }
+
+    .hero-button {
+
+        text-align: center;
+
+    }
+
+    .color-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .cta h2 {
+
+        letter-spacing: -5px;
+
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<!-- NAVIGATION -->
 
-<nav>
-    <div class="logo">ARC<span>/01</span></div>
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
-    <div class="nav-links">
-        <a href="#product">Product</a>
-        <a href="#technology">Technology</a>
-        <a href="#customize">Configure</a>
+<nav class="navbar">
+
+    <div class="logo">
+        ARC<span>/01</span>
     </div>
 
-    <a href="#customize" class="nav-buy">Buy ARC ONE</a>
+    <div class="nav-links">
+
+        <a href="#products">Products</a>
+
+        <a href="#configure">Configure</a>
+
+        <a href="#technology">Technology</a>
+
+        <a href="#specs">Specs</a>
+
+    </div>
+
+    <a href="#configure" class="nav-button">
+        Shop ARC
+    </a>
+
 </nav>
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
-    <div class="eyebrow">ARC INDUSTRIES / 2026</div>
+    <div>
 
-    <h1>
-        LESS<br>
-        <span>NOISE.</span>
-    </h1>
+        <div class="hero-small">
+            ARC INDUSTRIES · 2026
+        </div>
 
-    <p class="hero-description">
-        ARC ONE is a phone designed around one idea:
-        technology should disappear when you don't need it.
-    </p>
+        <h1>
+            MAKE IT<br>
+            <span>YOURS.</span>
+        </h1>
 
-    <div class="hero-actions">
-        <a href="#customize" class="btn btn-primary">
-            Configure ARC ONE
-        </a>
+        <p class="hero-text">
 
-        <a href="#technology" class="btn">
-            Explore technology
-        </a>
-    </div>
+            Technology doesn't have to look the same
+            for everyone. Meet a new generation of
+            devices built around your style.
 
-</section>
-
-
-<!-- PRODUCT -->
-
-<section class="product-stage" id="product">
-
-    <div class="product-copy">
-
-        <div class="number">01 / THE DEVICE</div>
-
-        <h2>
-            BUILT<br>
-            <span>QUIETLY.</span>
-        </h2>
-
-        <p>
-            No unnecessary shapes. No visual clutter.
-            Every surface, button and material exists for a reason.
-            ARC ONE is deliberately restrained.
         </p>
 
-        <div class="spec-line">
+        <div class="hero-buttons">
 
-            <div class="spec">
-                <strong>6.4"</strong>
-                <small>DISPLAY</small>
-            </div>
+            <a href="#products"
+               class="hero-button primary">
+                Explore products
+            </a>
 
-            <div class="spec">
-                <strong>48H</strong>
-                <small>BATTERY</small>
-            </div>
-
-            <div class="spec">
-                <strong>4NM</strong>
-                <small>PROCESSOR</small>
-            </div>
+            <a href="#configure"
+               class="hero-button">
+                Build your ARC
+            </a>
 
         </div>
 
     </div>
 
 
-    <div class="phone-area">
+    <div class="hero-image">
 
-        <div class="phone">
+        <img
+        src="https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        alt="Smartphone">
 
-            <div class="phone-screen">
-
-                <div class="screen-time">
-                    09:41
-                </div>
-
-                <div class="camera">
-                    <div class="lens one"></div>
-                    <div class="lens two"></div>
-                    <div class="lens three"></div>
-                </div>
-
-                <div class="screen-word">
-                    ARC<br>
-                    <span>ONE.</span>
-                </div>
-
-            </div>
-
+        <div class="hero-label">
+            ARC ONE · NEW
         </div>
 
     </div>
@@ -741,155 +1271,239 @@ footer {
 </section>
 
 
-<!-- BIG STATEMENT -->
+<!-- =====================================================
+     MARQUEE
+===================================================== -->
 
-<section class="statement">
+<div class="marquee">
 
-    <h2>
-        TECHNOLOGY<br>
-        SHOULD SERVE<br>
-        <span>THE HUMAN.</span>
-    </h2>
+    <div class="marquee-track">
 
-</section>
-
-
-<!-- TECHNOLOGY -->
-
-<section class="features" id="technology">
-
-    <div class="section-label">
-        02 / Technology
-    </div>
-
-    <div class="feature-grid">
-
-        <div class="feature">
-
-            <div class="feature-number">01</div>
-
-            <h3>48MP<br>OPTICS</h3>
-
-            <p>
-                A camera system designed to capture natural detail
-                without forcing you to think about the camera.
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <div class="feature-number">02</div>
-
-            <h3>ARC<br>CORE</h3>
-
-            <p>
-                A high-efficiency processor built to remain fast,
-                cool and quiet throughout the day.
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <div class="feature-number">03</div>
-
-            <h3>TWO DAY<br>BATTERY</h3>
-
-            <p>
-                Intelligent power management keeps the important
-                things running longer.
-            </p>
-
-        </div>
+        ARC ONE · ARC MINI · ARC TAB · ARC WATCH ·
+        DESIGNED DIFFERENTLY · ARC ONE · ARC MINI ·
+        ARC TAB · ARC WATCH · DESIGNED DIFFERENTLY ·
 
     </div>
 
-</section>
+</div>
 
 
-<!-- CUSTOMIZER -->
+<!-- =====================================================
+     PRODUCTS
+===================================================== -->
 
-<section class="customize" id="customize">
+<section class="products" id="products">
 
-    <div class="customize-header">
+    <div class="section-top">
 
         <div>
+
             <div class="section-label">
-                03 / Make it yours
+                01 / Products
             </div>
 
-            <h2>ARC ONE.</h2>
+            <h2 class="section-title">
+                MEET<br>THE ARC.
+            </h2>
+
         </div>
 
-        <div class="price" id="price">
-            $799
-        </div>
+        <p class="section-description">
+
+            Four devices. One design language.
+            Pick the technology that fits the way
+            you actually live.
+
+        </p>
 
     </div>
 
 
-    <div class="customizer-box">
+    <div class="product-grid">
 
-        <div>
 
-            <div class="option-title">
-                Finish
-            </div>
+        <!-- PHONE -->
 
-            <div class="options">
+        <div class="product-card large">
 
-                <button
-                    class="option active"
-                    data-color="Midnight">
-                    Midnight
-                </button>
+            <img
+            src="https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1400"
+            alt="ARC ONE phone">
 
-                <button
-                    class="option"
-                    data-color="Silver">
-                    Silver
-                </button>
+            <div class="product-overlay"></div>
 
-                <button
-                    class="option"
-                    data-color="Deep Blue">
-                    Deep Blue
-                </button>
+            <div class="product-info">
 
-                <button
-                    class="option"
-                    data-color="Burgundy">
-                    Burgundy
-                </button>
+                <h3>ARC ONE</h3>
+
+                <p>
+                    The flagship.
+                    Fast, expressive and built to be noticed.
+                </p>
+
+                <div class="product-price">
+                    From $799
+                </div>
 
             </div>
 
+        </div>
 
-            <div class="option-title">
-                Storage
+
+        <!-- MINI -->
+
+        <div class="product-card">
+
+            <img
+            src="https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=1000"
+            alt="Compact smartphone">
+
+            <div class="product-overlay"></div>
+
+            <div class="product-info">
+
+                <h3>ONE MINI</h3>
+
+                <p>
+                    Small body. Serious hardware.
+                </p>
+
+                <div class="product-price">
+                    From $649
+                </div>
+
             </div>
 
-            <div class="options">
+        </div>
+
+
+        <!-- TABLET -->
+
+        <div class="product-card">
+
+            <img
+            src="https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=1000"
+            alt="Tablet">
+
+            <div class="product-overlay"></div>
+
+            <div class="product-info">
+
+                <h3>ARC TAB</h3>
+
+                <p>
+                    A bigger canvas for bigger ideas.
+                </p>
+
+                <div class="product-price">
+                    From $699
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONFIGURATOR
+===================================================== -->
+
+<section class="selector" id="configure">
+
+    <div class="selector-wrapper">
+
+
+        <div class="selector-image">
+
+            <img
+            id="productImage"
+            src="https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1400"
+            alt="Selected ARC product">
+
+        </div>
+
+
+        <div class="selector-content">
+
+            <div class="section-label">
+                02 / Configure
+            </div>
+
+            <h2>
+                YOUR<br>
+                ONE.
+            </h2>
+
+            <p>
+                Choose a finish. Pick your storage.
+                Make ARC ONE look like yours.
+            </p>
+
+
+            <div class="color-title">
+                FINISH
+            </div>
+
+            <div class="colors">
 
                 <button
-                    class="option active"
+                    class="color black active"
+                    data-name="Obsidian">
+                </button>
+
+                <button
+                    class="color blue"
+                    data-name="Electric Blue">
+                </button>
+
+                <button
+                    class="color red"
+                    data-name="Signal Red">
+                </button>
+
+                <button
+                    class="color green"
+                    data-name="Forest Green">
+                </button>
+
+                <button
+                    class="color gold"
+                    data-name="Soft Gold">
+                </button>
+
+                <button
+                    class="color silver"
+                    data-name="Arctic Silver">
+                </button>
+
+            </div>
+
+
+            <div class="color-title">
+                STORAGE
+            </div>
+
+            <div class="storage">
+
+                <button
+                    class="active"
                     data-storage="128GB"
                     data-price="799">
                     128GB
                 </button>
 
                 <button
-                    class="option"
                     data-storage="256GB"
                     data-price="899">
                     256GB
                 </button>
 
                 <button
-                    class="option"
                     data-storage="512GB"
                     data-price="1099">
                     512GB
@@ -897,25 +1511,19 @@ footer {
 
             </div>
 
-        </div>
 
-
-        <div>
-
-            <div class="option-title">
-                Your configuration
+            <div
+                class="selected-price"
+                id="selectedPrice">
+                $799
             </div>
 
-            <p style="font-size: 28px; margin-bottom: 15px;">
-                ARC ONE
+            <p id="selectedConfiguration"
+               style="margin-top:10px;color:#777;">
+                Obsidian · 128GB
             </p>
 
-            <p id="configuration"
-               style="color:#777; margin-bottom:35px;">
-                Midnight · 128GB
-            </p>
-
-            <button class="buy-large" id="buyButton">
+            <button class="order" id="orderButton">
                 ORDER ARC ONE
             </button>
 
@@ -926,80 +1534,332 @@ footer {
 </section>
 
 
-<!-- FINAL -->
+<!-- =====================================================
+     COLOR SHOWCASE
+===================================================== -->
 
-<section class="final">
+<section class="color-showcase">
 
-    <div class="eyebrow">
-        ARC / ONE
+    <div class="section-label">
+        03 / The finishes
     </div>
 
-    <h2>
-        NOTHING<br>
-        EXTRA.
+    <h2 class="section-title">
+        PICK<br>YOUR COLOR.
     </h2>
 
-    <p>
-        Just the things that matter.
-    </p>
+
+    <div class="color-grid">
+
+
+        <div class="color-card">
+
+            <img
+            src="https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=900">
+
+            <div class="color-name">
+                OBSIDIAN
+            </div>
+
+        </div>
+
+
+        <div class="color-card">
+
+            <img
+            src="https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=900">
+
+            <div class="color-name">
+                ELECTRIC BLUE
+            </div>
+
+        </div>
+
+
+        <div class="color-card">
+
+            <img
+            src="https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=900">
+
+            <div class="color-name">
+                SIGNAL RED
+            </div>
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
-<footer>
+<!-- =====================================================
+     TECHNOLOGY
+===================================================== -->
 
-    <div>
-        © 2026 ARC INDUSTRIES
+<section class="feature" id="technology">
+
+
+    <div class="feature-image">
+
+        <img
+        src="https://images.pexels.com/photos/5053740/pexels-photo-5053740.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        alt="Technology">
+
     </div>
 
-    <div>
-        Designed for the next decade.
+
+    <div class="feature-content">
+
+        <div class="section-label">
+            04 / Camera
+        </div>
+
+        <h2>
+            SEE<br>
+            MORE.
+        </h2>
+
+        <p>
+            ARC ONE's 48MP camera system is designed
+            to capture sharp detail, natural colors and
+            the moments that don't happen twice.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SPECS
+===================================================== -->
+
+<section class="specs" id="specs">
+
+    <div class="section-label">
+        05 / Specifications
+    </div>
+
+    <h2 class="section-title">
+        THE<br>
+        NUMBERS.
+    </h2>
+
+
+    <div class="spec-table">
+
+
+        <div class="spec-row">
+            <span>Display</span>
+            <span>6.4" OLED · 120Hz</span>
+        </div>
+
+        <div class="spec-row">
+            <span>Main Camera</span>
+            <span>48MP Wide + 12MP Ultra Wide</span>
+        </div>
+
+        <div class="spec-row">
+            <span>Processor</span>
+            <span>ARC A1 · 4nm</span>
+        </div>
+
+        <div class="spec-row">
+            <span>Battery</span>
+            <span>5,200 mAh</span>
+        </div>
+
+        <div class="spec-row">
+            <span>Charging</span>
+            <span>80W Wired · 30W Wireless</span>
+        </div>
+
+        <div class="spec-row">
+            <span>Water Resistance</span>
+            <span>IP68</span>
+        </div>
+
+        <div class="spec-row">
+            <span>Operating System</span>
+            <span>ARC OS</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="cta">
+
+    <small>
+        ARC ONE · 2026
+    </small>
+
+    <h2>
+        BE<br>
+        DIFFERENT.
+    </h2>
+
+    <p>
+        Your phone is something you carry every day.
+        It might as well feel like yours.
+    </p>
+
+    <button onclick="scrollToConfigure()">
+        BUILD YOUR ARC
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-top">
+
+        <div class="footer-logo">
+            ARC
+        </div>
+
+
+        <div class="footer-links">
+
+
+            <div class="footer-column">
+
+                <h4>PRODUCTS</h4>
+
+                <a href="#products">
+                    ARC ONE
+                </a>
+
+                <a href="#products">
+                    ONE MINI
+                </a>
+
+                <a href="#products">
+                    ARC TAB
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>COMPANY</h4>
+
+                <a href="#">
+                    About
+                </a>
+
+                <a href="#">
+                    Careers
+                </a>
+
+                <a href="#">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>FOLLOW</h4>
+
+                <a href="#">
+                    Instagram
+                </a>
+
+                <a href="#">
+                    X
+                </a>
+
+                <a href="#">
+                    YouTube
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 ARC INDUSTRIES · Fictional concept website
+
     </div>
 
 </footer>
 
 
-<div class="message" id="message"></div>
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div class="toast" id="toast"></div>
 
 
 <script>
 
-/* =========================
-   PRODUCT CUSTOMIZER
-========================= */
 
-let selectedColor = "Midnight";
+/* =====================================================
+   PRODUCT CONFIGURATION
+===================================================== */
+
+let selectedColor = "Obsidian";
+
 let selectedStorage = "128GB";
-let selectedPrice = 799;
 
-const colorOptions =
-    document.querySelectorAll("[data-color]");
+let selectedPrice = "799";
 
-const storageOptions =
-    document.querySelectorAll("[data-storage]");
 
-const configuration =
-    document.getElementById("configuration");
+const colors =
+    document.querySelectorAll(".color");
+
+const storages =
+    document.querySelectorAll(".storage button");
 
 const price =
-    document.getElementById("price");
+    document.getElementById("selectedPrice");
 
-const message =
-    document.getElementById("message");
+const configuration =
+    document.getElementById(
+        "selectedConfiguration"
+    );
+
+const toast =
+    document.getElementById("toast");
 
 
-colorOptions.forEach(option => {
+/* =====================================================
+   COLOR SELECTION
+===================================================== */
 
-    option.addEventListener("click", () => {
+colors.forEach(color => {
 
-        colorOptions.forEach(item => {
+    color.addEventListener("click", () => {
+
+        colors.forEach(item => {
+
             item.classList.remove("active");
+
         });
 
-        option.classList.add("active");
+        color.classList.add("active");
 
         selectedColor =
-            option.dataset.color;
+            color.dataset.name;
 
         updateConfiguration();
 
@@ -1008,21 +1868,27 @@ colorOptions.forEach(option => {
 });
 
 
-storageOptions.forEach(option => {
+/* =====================================================
+   STORAGE SELECTION
+===================================================== */
 
-    option.addEventListener("click", () => {
+storages.forEach(storage => {
 
-        storageOptions.forEach(item => {
+    storage.addEventListener("click", () => {
+
+        storages.forEach(item => {
+
             item.classList.remove("active");
+
         });
 
-        option.classList.add("active");
+        storage.classList.add("active");
 
         selectedStorage =
-            option.dataset.storage;
+            storage.dataset.storage;
 
         selectedPrice =
-            option.dataset.price;
+            storage.dataset.price;
 
         updateConfiguration();
 
@@ -1031,94 +1897,85 @@ storageOptions.forEach(option => {
 });
 
 
+/* =====================================================
+   UPDATE CONFIGURATION
+===================================================== */
+
 function updateConfiguration() {
+
+    price.textContent =
+        "$" + selectedPrice;
 
     configuration.textContent =
         selectedColor +
         " · " +
         selectedStorage;
 
-    price.textContent =
-        "$" +
-        selectedPrice;
-
 }
 
 
-/* =========================
-   BUY BUTTON
-========================= */
+/* =====================================================
+   ORDER BUTTON
+===================================================== */
 
 document
-    .getElementById("buyButton")
+    .getElementById("orderButton")
     .addEventListener("click", () => {
 
-        showMessage(
+        showToast(
             "ARC ONE · " +
             selectedColor +
             " · " +
             selectedStorage +
-            " selected."
+            " added to your configuration."
         );
 
     });
 
 
-/* =========================
-   MESSAGE
-========================= */
+/* =====================================================
+   TOAST
+===================================================== */
 
-function showMessage(text) {
+function showToast(text) {
 
-    message.textContent = text;
+    toast.textContent = text;
 
-    message.classList.add("show");
+    toast.classList.add("show");
 
     setTimeout(() => {
-        message.classList.remove("show");
+
+        toast.classList.remove("show");
+
     }, 3000);
 
 }
 
 
-/* =========================
-   NAVIGATION
-========================= */
+/* =====================================================
+   FINAL CTA
+===================================================== */
 
-document
-    .querySelectorAll('a[href^="#"]')
-    .forEach(link => {
+function scrollToConfigure() {
 
-        link.addEventListener("click", function(e) {
-
-            e.preventDefault();
-
-            const target =
-                document.querySelector(
-                    this.getAttribute("href")
-                );
-
-            if (target) {
-
-                target.scrollIntoView({
-                    behavior: "smooth"
-                });
-
-            }
-
+    document
+        .getElementById("configure")
+        .scrollIntoView({
+            behavior: "smooth"
         });
 
-    });
+}
 
 
-/* =========================
-   SIMPLE SCROLL REVEAL
-========================= */
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
 
-const revealItems =
+const revealElements =
     document.querySelectorAll(
-        ".feature, .statement h2, .product-copy, .phone"
+        ".product-card, .color-card, .feature-content, .spec-row"
     );
+
 
 const observer =
     new IntersectionObserver(
@@ -1126,9 +1983,12 @@ const observer =
 
             entries.forEach(entry => {
 
-                if (entry.isIntersecting) {
+                if (
+                    entry.isIntersecting
+                ) {
 
                     entry.target.style.opacity = "1";
+
                     entry.target.style.transform =
                         "translateY(0)";
 
@@ -1138,22 +1998,25 @@ const observer =
 
         },
         {
-            threshold: 0.15
+            threshold: .12
         }
     );
 
 
-revealItems.forEach(item => {
+revealElements.forEach(element => {
 
-    item.style.opacity = "0";
-    item.style.transform =
-        "translateY(35px)";
-    item.style.transition =
-        "opacity 0.8s ease, transform 0.8s ease";
+    element.style.opacity = "0";
 
-    observer.observe(item);
+    element.style.transform =
+        "translateY(30px)";
+
+    element.style.transition =
+        "opacity .7s ease, transform .7s ease";
+
+    observer.observe(element);
 
 });
+
 
 </script>
 
