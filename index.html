@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARC — Technology, Refined</title>
+
+    <title>ARC ONE — A better phone.</title>
 
     <style>
+
+        /* =========================
+           BASIC RESET
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -19,25 +25,37 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
                          Helvetica, Arial, sans-serif;
+
             background: #f5f5f7;
             color: #1d1d1f;
-            line-height: 1.4;
         }
 
-        /* NAVIGATION */
+        button,
+        a {
+            font: inherit;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
 
         nav {
-            height: 52px;
-            background: rgba(245, 245, 247, 0.92);
-            border-bottom: 1px solid #d2d2d7;
+            height: 54px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
 
             padding: 0 7%;
+
+            background: rgba(245, 245, 247, 0.94);
+
+            border-bottom: 1px solid #d2d2d7;
+
             position: sticky;
             top: 0;
+
             z-index: 100;
         }
 
@@ -49,7 +67,7 @@
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 34px;
             list-style: none;
         }
 
@@ -57,327 +75,633 @@
             text-decoration: none;
             color: #424245;
             font-size: 13px;
-            transition: color 0.2s;
         }
 
         .nav-links a:hover {
             color: #000;
         }
 
-        .nav-button {
+        .nav-buy {
+            border: none;
             background: #1d1d1f;
             color: white;
-            padding: 8px 16px;
+
+            padding: 8px 17px;
+
             border-radius: 20px;
-            text-decoration: none;
-            font-size: 13px;
+
+            cursor: pointer;
         }
 
-        /* HERO */
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
-            min-height: calc(100vh - 52px);
+            min-height: 680px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
             text-align: center;
-            padding: 80px 20px;
+
+            padding: 100px 20px;
         }
 
         .hero-content {
-            max-width: 1000px;
+            max-width: 950px;
         }
 
         .eyebrow {
             font-size: 15px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
             color: #6e6e73;
+
             margin-bottom: 22px;
+
+            font-weight: 600;
         }
 
         .hero h1 {
-            font-size: clamp(64px, 10vw, 150px);
-            line-height: 0.9;
+            font-size: clamp(65px, 10vw, 145px);
+
+            line-height: 0.88;
+
             letter-spacing: -8px;
-            font-weight: 700;
+
             margin-bottom: 35px;
         }
 
         .hero h1 span {
-            color: #6e6e73;
-        }
-
-        .hero-text {
-            max-width: 600px;
-            margin: auto;
-
-            font-size: 22px;
-            line-height: 1.45;
-            color: #6e6e73;
-        }
-
-        .hero-actions {
-            margin-top: 38px;
-
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .primary-btn {
-            background: #1d1d1f;
-            color: white;
-
-            padding: 13px 24px;
-            border-radius: 25px;
-
-            text-decoration: none;
-            font-size: 15px;
-        }
-
-        .secondary-btn {
-            border: 1px solid #1d1d1f;
-            color: #1d1d1f;
-
-            padding: 12px 24px;
-            border-radius: 25px;
-
-            text-decoration: none;
-            font-size: 15px;
-        }
-
-        /* PRODUCT SECTION */
-
-        .product-section {
-            background: #000;
-            color: white;
-
-            min-height: 800px;
-            padding: 120px 8%;
-
-            display: flex;
-            align-items: center;
-        }
-
-        .product-wrapper {
-            width: 100%;
-            max-width: 1300px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 100px;
-
-            align-items: center;
-        }
-
-        .product-label {
             color: #86868b;
-            font-size: 14px;
-            margin-bottom: 20px;
         }
 
-        .product-title {
-            font-size: clamp(55px, 7vw, 100px);
-            letter-spacing: -5px;
-            line-height: 0.95;
-            margin-bottom: 30px;
-        }
+        .hero p {
+            max-width: 600px;
 
-        .product-description {
-            color: #a1a1a6;
-            font-size: 20px;
-            max-width: 450px;
+            margin: auto;
+
+            color: #6e6e73;
+
+            font-size: 21px;
+
             line-height: 1.5;
         }
 
-        /* SIMPLE PRODUCT VISUAL */
-
-        .device-area {
-            height: 500px;
+        .hero-buttons {
+            margin-top: 35px;
 
             display: flex;
-            align-items: center;
+
             justify-content: center;
 
-            position: relative;
+            gap: 14px;
         }
 
-        .device {
-            width: 290px;
-            height: 420px;
+        .button-dark {
+            background: #1d1d1f;
+            color: white;
+
+            border: none;
+
+            padding: 13px 24px;
+
+            border-radius: 25px;
+
+            cursor: pointer;
+
+            text-decoration: none;
+        }
+
+        .button-light {
+            background: transparent;
+
+            border: 1px solid #1d1d1f;
+
+            color: #1d1d1f;
+
+            padding: 12px 24px;
+
+            border-radius: 25px;
+
+            cursor: pointer;
+
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           PRODUCT
+        ========================= */
+
+        .product {
+            background: #000;
+            color: white;
+
+            padding: 120px 7%;
+        }
+
+        .product-container {
+            max-width: 1250px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+        .product-info small {
+            color: #86868b;
+        }
+
+        .product-info h2 {
+            font-size: clamp(55px, 7vw, 100px);
+
+            line-height: 0.92;
+
+            letter-spacing: -5px;
+
+            margin: 20px 0 30px;
+        }
+
+        .product-info p {
+            color: #a1a1a6;
+
+            font-size: 19px;
+
+            line-height: 1.55;
+
+            max-width: 460px;
+        }
+
+
+        /* =========================
+           PHONE
+        ========================= */
+
+        .phone-area {
+            min-height: 550px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+        .phone {
+            width: 270px;
+            height: 500px;
+
+            border-radius: 43px;
 
             border: 7px solid #333;
-            border-radius: 40px;
 
-            background: #111;
-
-            box-shadow:
-                0 30px 80px rgba(255,255,255,0.08);
+            background: #171717;
 
             position: relative;
+
+            box-shadow: 0 40px 100px rgba(255,255,255,0.08);
+
+            transition:
+                background 0.4s,
+                transform 0.4s,
+                box-shadow 0.4s;
         }
 
-        .device::before {
-            content: "";
+        .phone:hover {
+            transform: translateY(-10px);
+        }
 
-            width: 90px;
-            height: 22px;
+        .phone-notch {
+            width: 95px;
+            height: 24px;
 
             background: #000;
 
             border-radius: 20px;
 
             position: absolute;
+
             top: 12px;
+
             left: 50%;
+
             transform: translateX(-50%);
+
+            z-index: 5;
         }
 
-        .device-screen {
+        .phone-screen {
             position: absolute;
 
-            left: 18px;
-            right: 18px;
-            top: 18px;
-            bottom: 18px;
+            inset: 17px;
 
-            border-radius: 28px;
+            border-radius: 31px;
 
-            border: 1px solid #292929;
+            border: 1px solid #333;
 
             display: flex;
+
             align-items: flex-end;
 
             padding: 25px;
+
+            overflow: hidden;
         }
 
-        .screen-text {
-            font-size: 40px;
-            font-weight: 600;
+        .phone-screen::after {
+            content: "";
+
+            position: absolute;
+
+            width: 160px;
+            height: 160px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            right: -60px;
+            top: 100px;
+        }
+
+        .phone-name {
+            font-size: 38px;
+
             letter-spacing: -2px;
+
+            font-weight: 600;
+
+            z-index: 2;
         }
 
-        /* FEATURES */
+
+        /* =========================
+           CUSTOMIZER
+        ========================= */
+
+        .customizer {
+            background: #f5f5f7;
+
+            padding: 120px 7%;
+        }
+
+        .customizer-container {
+            max-width: 1100px;
+
+            margin: auto;
+        }
+
+        .customizer-heading {
+            margin-bottom: 60px;
+        }
+
+        .customizer-heading h2 {
+            font-size: clamp(50px, 7vw, 85px);
+
+            letter-spacing: -5px;
+
+            line-height: 0.95;
+        }
+
+        .customizer-heading p {
+            margin-top: 20px;
+
+            color: #6e6e73;
+
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           OPTIONS
+        ========================= */
+
+        .options {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+        }
+
+        .option-title {
+            font-size: 14px;
+
+            color: #6e6e73;
+
+            margin-bottom: 18px;
+        }
+
+        .colors {
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .color {
+            width: 52px;
+            height: 52px;
+
+            border-radius: 50%;
+
+            border: 3px solid transparent;
+
+            cursor: pointer;
+
+            outline: 1px solid #c7c7cc;
+
+            outline-offset: 2px;
+        }
+
+        .color.active {
+            outline: 2px solid #1d1d1f;
+            outline-offset: 4px;
+        }
+
+        .black {
+            background: #111;
+        }
+
+        .silver {
+            background: #d8d8d8;
+        }
+
+        .blue {
+            background: #34475c;
+        }
+
+        .red {
+            background: #763b3b;
+        }
+
+
+        /* STORAGE */
+
+        .storage {
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        .storage button {
+            background: transparent;
+
+            border: 1px solid #b8b8bd;
+
+            padding: 13px 22px;
+
+            border-radius: 25px;
+
+            cursor: pointer;
+        }
+
+        .storage button.active {
+            background: #1d1d1f;
+
+            color: white;
+
+            border-color: #1d1d1f;
+        }
+
+
+        /* =========================
+           PRICE
+        ========================= */
+
+        .price-box {
+            margin-top: 65px;
+
+            padding-top: 30px;
+
+            border-top: 1px solid #d2d2d7;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .price-label {
+            color: #6e6e73;
+
+            font-size: 14px;
+        }
+
+        .price {
+            font-size: 45px;
+
+            letter-spacing: -2px;
+
+            font-weight: 600;
+        }
+
+        .buy-button {
+            border: none;
+
+            background: #1d1d1f;
+
+            color: white;
+
+            padding: 14px 28px;
+
+            border-radius: 25px;
+
+            cursor: pointer;
+
+            transition: transform 0.2s;
+        }
+
+        .buy-button:hover {
+            transform: scale(1.04);
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================= */
 
         .features {
-            padding: 140px 8%;
-            background: #f5f5f7;
+            background: white;
+
+            padding: 130px 7%;
         }
 
-        .features-heading {
-            max-width: 1000px;
+        .features-container {
+            max-width: 1200px;
+
             margin: auto;
-            margin-bottom: 90px;
         }
 
-        .features-heading h2 {
+        .features h2 {
             font-size: clamp(50px, 7vw, 90px);
+
             line-height: 0.95;
+
             letter-spacing: -5px;
+
+            margin-bottom: 80px;
         }
 
-        .features-heading h2 span {
+        .features h2 span {
             color: #86868b;
         }
 
         .feature-grid {
-            max-width: 1200px;
-            margin: auto;
-
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
 
             border-top: 1px solid #d2d2d7;
         }
 
         .feature {
-            padding: 40px 30px 50px 0;
+            padding: 40px 30px 40px 0;
+
             border-bottom: 1px solid #d2d2d7;
         }
 
         .feature:not(:last-child) {
             border-right: 1px solid #d2d2d7;
-            padding-right: 40px;
+
+            padding-right: 35px;
         }
 
         .feature:not(:first-child) {
-            padding-left: 40px;
+            padding-left: 35px;
         }
 
         .feature-number {
             color: #86868b;
+
             font-size: 13px;
+
             margin-bottom: 50px;
         }
 
         .feature h3 {
             font-size: 28px;
+
             letter-spacing: -1px;
+
             margin-bottom: 15px;
         }
 
         .feature p {
             color: #6e6e73;
-            font-size: 16px;
+
             line-height: 1.6;
         }
 
-        /* FINAL CTA */
 
-        .final-section {
-            min-height: 650px;
+        /* =========================
+           FINAL CTA
+        ========================= */
+
+        .final {
             background: #e8e8ed;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 140px 20px;
 
             text-align: center;
-            padding: 100px 20px;
         }
 
-        .final-content {
-            max-width: 850px;
-        }
-
-        .final-content h2 {
+        .final h2 {
             font-size: clamp(55px, 8vw, 110px);
+
             line-height: 0.9;
+
             letter-spacing: -6px;
+
             margin-bottom: 30px;
         }
 
-        .final-content p {
+        .final p {
             color: #6e6e73;
-            font-size: 21px;
+
+            font-size: 20px;
+
             max-width: 550px;
+
             margin: auto;
         }
 
-        /* FOOTER */
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             background: #1d1d1f;
+
             color: #86868b;
 
-            padding: 30px 8%;
+            padding: 30px 7%;
 
             display: flex;
-            justify-content: space-between;
-            align-items: center;
 
-            font-size: 13px;
+            justify-content: space-between;
         }
 
         footer strong {
             color: white;
         }
 
-        /* MOBILE */
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        .message {
+            position: fixed;
+
+            bottom: 25px;
+
+            left: 50%;
+
+            transform: translateX(-50%) translateY(100px);
+
+            background: #1d1d1f;
+
+            color: white;
+
+            padding: 14px 22px;
+
+            border-radius: 25px;
+
+            font-size: 14px;
+
+            opacity: 0;
+
+            transition: 0.35s;
+
+            z-index: 500;
+        }
+
+        .message.show {
+            opacity: 1;
+
+            transform: translateX(-50%) translateY(0);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 800px) {
 
@@ -390,44 +714,52 @@
             }
 
             .hero {
-                min-height: 80vh;
+                min-height: 600px;
             }
 
             .hero h1 {
                 letter-spacing: -4px;
             }
 
-            .hero-text {
-                font-size: 18px;
-            }
-
-            .hero-actions {
+            .hero-buttons {
                 flex-direction: column;
+
                 align-items: center;
             }
 
-            .product-section {
+            .product {
                 padding: 90px 25px;
             }
 
-            .product-wrapper {
+            .product-container {
                 grid-template-columns: 1fr;
-                gap: 50px;
+
+                gap: 40px;
             }
 
-            .product-title {
+            .product-info h2 {
                 letter-spacing: -3px;
             }
 
-            .device-area {
-                height: 430px;
+            .customizer {
+                padding: 90px 25px;
+            }
+
+            .options {
+                grid-template-columns: 1fr;
+            }
+
+            .price-box {
+                align-items: flex-start;
+
+                flex-direction: column;
             }
 
             .features {
                 padding: 90px 25px;
             }
 
-            .features-heading h2 {
+            .features h2 {
                 letter-spacing: -3px;
             }
 
@@ -439,6 +771,7 @@
             .feature:not(:first-child),
             .feature:not(:last-child) {
                 padding: 35px 0;
+
                 border-right: none;
             }
 
@@ -446,62 +779,97 @@
                 margin-bottom: 30px;
             }
 
-            .final-content h2 {
+            .final h2 {
                 letter-spacing: -3px;
             }
 
             footer {
                 flex-direction: column;
+
                 gap: 10px;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- NAVIGATION -->
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
 
     <nav>
-        <div class="logo">ARC.</div>
+
+        <div class="logo">
+            ARC.
+        </div>
 
         <ul class="nav-links">
-            <li><a href="#product">Product</a></li>
-            <li><a href="#technology">Technology</a></li>
-            <li><a href="#about">About</a></li>
+
+            <li>
+                <a href="#product">
+                    Product
+                </a>
+            </li>
+
+            <li>
+                <a href="#customize">
+                    Customize
+                </a>
+            </li>
+
+            <li>
+                <a href="#technology">
+                    Technology
+                </a>
+            </li>
+
         </ul>
 
-        <a href="#contact" class="nav-button">Explore</a>
+        <button class="nav-buy" id="navBuy">
+            Buy
+        </button>
+
     </nav>
 
 
-    <!-- HERO -->
+
+    <!-- =========================
+         HERO
+    ========================= -->
 
     <section class="hero">
 
         <div class="hero-content">
 
             <div class="eyebrow">
-                A different kind of technology.
+                Introducing ARC ONE
             </div>
 
             <h1>
-                Built for <span>tomorrow.</span>
+                Your phone.<br>
+                <span>Reconsidered.</span>
             </h1>
 
-            <p class="hero-text">
-                Thoughtful hardware. Quiet software.
-                Technology designed to disappear into the way you live.
+            <p>
+                ARC ONE removes the noise between you
+                and the things that matter.
+                Powerful hardware. Quiet software.
             </p>
 
-            <div class="hero-actions">
-                <a href="#product" class="primary-btn">
-                    Discover ARC
+            <div class="hero-buttons">
+
+                <a href="#customize" class="button-dark">
+                    Configure yours
                 </a>
 
-                <a href="#technology" class="secondary-btn">
-                    Learn more
+                <a href="#technology" class="button-light">
+                    Explore technology
                 </a>
+
             </div>
 
         </div>
@@ -509,40 +877,47 @@
     </section>
 
 
-    <!-- PRODUCT -->
 
-    <section class="product-section" id="product">
+    <!-- =========================
+         PRODUCT
+    ========================= -->
 
-        <div class="product-wrapper">
+    <section class="product" id="product">
 
-            <div>
+        <div class="product-container">
 
-                <div class="product-label">
+            <div class="product-info">
+
+                <small>
                     ARC ONE — 2026
-                </div>
+                </small>
 
-                <h2 class="product-title">
+                <h2>
                     Less.<br>
                     But better.
                 </h2>
 
-                <p class="product-description">
-                    A device engineered around the things that matter.
-                    No distractions. No unnecessary complexity.
-                    Just an experience that gets out of your way.
+                <p>
+                    A phone designed around the essentials.
+                    Every component has a purpose.
+                    Every interaction has been considered.
                 </p>
 
             </div>
 
 
-            <div class="device-area">
+            <div class="phone-area">
 
-                <div class="device">
+                <div class="phone" id="phone">
 
-                    <div class="device-screen">
-                        <div class="screen-text">
+                    <div class="phone-notch"></div>
+
+                    <div class="phone-screen">
+
+                        <div class="phone-name">
                             ARC
                         </div>
+
                     </div>
 
                 </div>
@@ -554,75 +929,215 @@
     </section>
 
 
-    <!-- FEATURES -->
+
+    <!-- =========================
+         CUSTOMIZER
+    ========================= -->
+
+    <section class="customizer" id="customize">
+
+        <div class="customizer-container">
+
+            <div class="customizer-heading">
+
+                <h2>
+                    Make it yours.
+                </h2>
+
+                <p>
+                    Choose your finish and storage.
+                </p>
+
+            </div>
+
+
+            <div class="options">
+
+
+                <!-- COLORS -->
+
+                <div>
+
+                    <div class="option-title">
+                        FINISH
+                    </div>
+
+                    <div class="colors">
+
+                        <button
+                            class="color black active"
+                            data-color="#171717"
+                            data-name="Midnight"
+                            aria-label="Midnight">
+                        </button>
+
+                        <button
+                            class="color silver"
+                            data-color="#cfcfcf"
+                            data-name="Silver"
+                            aria-label="Silver">
+                        </button>
+
+                        <button
+                            class="color blue"
+                            data-color="#34475c"
+                            data-name="Deep Blue"
+                            aria-label="Deep Blue">
+                        </button>
+
+                        <button
+                            class="color red"
+                            data-color="#713b3b"
+                            data-name="Burgundy"
+                            aria-label="Burgundy">
+                        </button>
+
+                    </div>
+
+                    <p id="colorName" style="margin-top:20px;color:#6e6e73;">
+                        Midnight
+                    </p>
+
+                </div>
+
+
+                <!-- STORAGE -->
+
+                <div>
+
+                    <div class="option-title">
+                        STORAGE
+                    </div>
+
+                    <div class="storage">
+
+                        <button
+                            class="active"
+                            data-storage="128 GB"
+                            data-price="799">
+                            128 GB
+                        </button>
+
+                        <button
+                            data-storage="256 GB"
+                            data-price="899">
+                            256 GB
+                        </button>
+
+                        <button
+                            data-storage="512 GB"
+                            data-price="1099">
+                            512 GB
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRICE -->
+
+            <div class="price-box">
+
+                <div>
+
+                    <div class="price-label">
+                        ARC ONE · <span id="storageName">128 GB</span>
+                    </div>
+
+                    <div class="price">
+                        $<span id="price">799</span>
+                    </div>
+
+                </div>
+
+                <button class="buy-button" id="buyButton">
+                    Buy ARC ONE
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TECHNOLOGY
+    ========================= -->
 
     <section class="features" id="technology">
 
-        <div class="features-heading">
+        <div class="features-container">
 
             <h2>
-                Technology should feel
-                <span>obvious.</span>
+                Built around<br>
+                <span>what matters.</span>
             </h2>
 
-        </div>
+
+            <div class="feature-grid">
 
 
-        <div class="feature-grid">
+                <div class="feature">
 
-            <div class="feature">
+                    <div class="feature-number">
+                        01 — CAMERA
+                    </div>
 
-                <div class="feature-number">
-                    01 — DESIGN
+                    <h3>
+                        See more.
+                    </h3>
+
+                    <p>
+                        A 48MP main camera captures
+                        detail without making photography
+                        complicated.
+                    </p>
+
                 </div>
 
-                <h3>
-                    Nothing extra.
-                </h3>
 
-                <p>
-                    Every surface, button and interaction
-                    has a reason to exist. The result is
-                    technology that feels natural from day one.
-                </p>
+                <div class="feature">
 
-            </div>
+                    <div class="feature-number">
+                        02 — PERFORMANCE
+                    </div>
 
+                    <h3>
+                        Fast by default.
+                    </h3>
 
-            <div class="feature">
+                    <p>
+                        The ARC A1 processor keeps
+                        everyday tasks immediate while
+                        using power efficiently.
+                    </p>
 
-                <div class="feature-number">
-                    02 — PERFORMANCE
                 </div>
 
-                <h3>
-                    Fast where it matters.
-                </h3>
 
-                <p>
-                    Responsive hardware and carefully
-                    optimized software keep everything
-                    immediate, fluid and quiet.
-                </p>
+                <div class="feature">
 
-            </div>
+                    <div class="feature-number">
+                        03 — BATTERY
+                    </div>
 
+                    <h3>
+                        All day.
+                    </h3>
 
-            <div class="feature">
+                    <p>
+                        A high-density battery gives
+                        you enough power to get through
+                        the day without thinking about it.
+                    </p>
 
-                <div class="feature-number">
-                    03 — PRIVACY
                 </div>
 
-                <h3>
-                    Yours means yours.
-                </h3>
-
-                <p>
-                    Your information belongs to you.
-                    ARC is designed around privacy instead
-                    of treating it as an afterthought.
-                </p>
 
             </div>
 
@@ -631,36 +1146,38 @@
     </section>
 
 
-    <!-- FINAL CTA -->
 
-    <section class="final-section" id="contact">
+    <!-- =========================
+         FINAL CTA
+    ========================= -->
 
-        <div class="final-content">
+    <section class="final">
 
-            <h2>
-                Make room<br>
-                for what matters.
-            </h2>
+        <h2>
+            Technology<br>
+            without the noise.
+        </h2>
 
-            <p>
-                The next generation of personal technology
-                starts with doing less, better.
-            </p>
+        <p>
+            ARC ONE is designed to give you more
+            control over your technology, not less.
+        </p>
 
-            <div class="hero-actions">
+        <div style="margin-top:35px;">
 
-                <a href="#" class="primary-btn">
-                    Get started
-                </a>
-
-            </div>
+            <a href="#customize" class="button-dark">
+                Configure ARC ONE
+            </a>
 
         </div>
 
     </section>
 
 
-    <!-- FOOTER -->
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
     <footer>
 
@@ -673,6 +1190,180 @@
         </div>
 
     </footer>
+
+
+
+    <!-- =========================
+         POPUP MESSAGE
+    ========================= -->
+
+    <div class="message" id="message">
+        Added to your selection.
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* =========================
+           VARIABLES
+        ========================= */
+
+        const phone = document.getElementById("phone");
+
+        const colorButtons =
+            document.querySelectorAll(".color");
+
+        const colorName =
+            document.getElementById("colorName");
+
+        const storageButtons =
+            document.querySelectorAll(".storage button");
+
+        const storageName =
+            document.getElementById("storageName");
+
+        const price =
+            document.getElementById("price");
+
+        const buyButton =
+            document.getElementById("buyButton");
+
+        const navBuy =
+            document.getElementById("navBuy");
+
+        const message =
+            document.getElementById("message");
+
+
+
+        /* =========================
+           COLOR SELECTION
+        ========================= */
+
+        colorButtons.forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                colorButtons.forEach(item => {
+                    item.classList.remove("active");
+                });
+
+                button.classList.add("active");
+
+                const selectedColor =
+                    button.dataset.color;
+
+                const selectedName =
+                    button.dataset.name;
+
+                phone.style.background =
+                    selectedColor;
+
+                colorName.textContent =
+                    selectedName;
+
+            });
+
+        });
+
+
+
+        /* =========================
+           STORAGE SELECTION
+        ========================= */
+
+        storageButtons.forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                storageButtons.forEach(item => {
+                    item.classList.remove("active");
+                });
+
+                button.classList.add("active");
+
+                const selectedStorage =
+                    button.dataset.storage;
+
+                const selectedPrice =
+                    button.dataset.price;
+
+                storageName.textContent =
+                    selectedStorage;
+
+                price.textContent =
+                    selectedPrice;
+
+            });
+
+        });
+
+
+
+        /* =========================
+           SHOW MESSAGE
+        ========================= */
+
+        function showMessage(text) {
+
+            message.textContent = text;
+
+            message.classList.add("show");
+
+            setTimeout(() => {
+
+                message.classList.remove("show");
+
+            }, 2200);
+
+        }
+
+
+
+        /* =========================
+           BUY BUTTON
+        ========================= */
+
+        buyButton.addEventListener("click", () => {
+
+            const selectedStorage =
+                storageName.textContent;
+
+            const selectedColor =
+                colorName.textContent;
+
+            showMessage(
+                "ARC ONE · " +
+                selectedColor +
+                " · " +
+                selectedStorage +
+                " selected"
+            );
+
+        });
+
+
+
+        /* =========================
+           NAV BUY BUTTON
+        ========================= */
+
+        navBuy.addEventListener("click", () => {
+
+            document
+                .getElementById("customize")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        });
+
+    </script>
 
 </body>
 </html>
