@@ -5,13 +5,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ARC — Make It Yours</title>
+<title>ARC — Technology, Your Way</title>
 
 <style>
 
-/* =====================================================
+/* =========================================================
    RESET
-===================================================== */
+========================================================= */
 
 * {
     margin: 0;
@@ -45,27 +45,28 @@ a {
 }
 
 
-/* =====================================================
+/* =========================================================
    NAVBAR
-===================================================== */
+========================================================= */
 
 .navbar {
-    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 72px;
+
     padding: 0 5vw;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-
-    z-index: 1000;
+    z-index: 999;
 
     background: rgba(245,245,242,.88);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(18px);
 
     border-bottom: 1px solid #ddd;
 }
@@ -77,7 +78,7 @@ a {
 }
 
 .logo span {
-    color: #777;
+    color: #888;
 }
 
 .nav-links {
@@ -85,22 +86,22 @@ a {
     gap: 32px;
 
     font-size: 13px;
-    color: #555;
+    color: #666;
 }
 
 .nav-links a {
-    transition: .25s;
+    transition: .2s;
 }
 
 .nav-links a:hover {
-    color: #000;
+    color: #111;
 }
 
-.nav-button {
-    padding: 10px 19px;
-
+.shop-button {
     background: #111;
     color: white;
+
+    padding: 11px 20px;
 
     border-radius: 30px;
 
@@ -109,34 +110,35 @@ a {
     transition: .25s;
 }
 
-.nav-button:hover {
-    transform: scale(1.05);
+.shop-button:hover {
+    transform: translateY(-2px);
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
 .hero {
     min-height: 100vh;
 
-    padding: 150px 6vw 70px;
+    padding: 145px 6vw 80px;
 
     display: grid;
-    grid-template-columns: 1fr 1.15fr;
+
+    grid-template-columns: .9fr 1.1fr;
+
+    gap: 60px;
 
     align-items: center;
-
-    gap: 50px;
-
-    overflow: hidden;
 }
 
-.hero-small {
-    font-size: 12px;
+.hero-label {
+    font-size: 11px;
+
+    color: #888;
+
     letter-spacing: 4px;
-    color: #777;
 
     margin-bottom: 25px;
 }
@@ -144,27 +146,25 @@ a {
 .hero h1 {
     font-size: clamp(65px, 10vw, 150px);
 
-    line-height: .78;
-
     letter-spacing: -9px;
 
-    max-width: 800px;
+    line-height: .78;
 }
 
 .hero h1 span {
-    color: #d83a2f;
+    color: #d93630;
 }
 
 .hero-text {
-    margin-top: 35px;
-
     max-width: 480px;
+
+    margin-top: 35px;
 
     color: #666;
 
-    font-size: 17px;
-
     line-height: 1.7;
+
+    font-size: 17px;
 }
 
 .hero-buttons {
@@ -178,11 +178,9 @@ a {
 .hero-button {
     padding: 15px 24px;
 
+    border: 1px solid #111;
+
     border-radius: 30px;
-
-    border: 1px solid #222;
-
-    background: transparent;
 
     transition: .25s;
 }
@@ -197,81 +195,74 @@ a {
     color: white;
 }
 
-
-/* =====================================================
-   HERO IMAGE
-===================================================== */
-
-.hero-image {
+.hero-visual {
     height: 650px;
-
-    position: relative;
 
     border-radius: 30px;
 
     overflow: hidden;
 
+    position: relative;
+
     background: #ddd;
 }
 
-.hero-image img {
+.hero-visual img {
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 
-    transition: transform 1s;
+    transition: .7s;
 }
 
-.hero-image:hover img {
+.hero-visual:hover img {
     transform: scale(1.05);
 }
 
-.hero-label {
+.hero-tag {
     position: absolute;
 
     bottom: 25px;
     left: 25px;
 
-    padding: 12px 17px;
-
     background: rgba(255,255,255,.9);
+
+    padding: 11px 17px;
 
     border-radius: 30px;
 
     font-size: 12px;
-
-    backdrop-filter: blur(10px);
 }
 
 
-/* =====================================================
+/* =========================================================
    MARQUEE
-===================================================== */
+========================================================= */
 
 .marquee {
-    overflow: hidden;
-
     background: #111;
+
     color: white;
 
-    padding: 22px 0;
+    overflow: hidden;
 
     white-space: nowrap;
+
+    padding: 22px 0;
 }
 
-.marquee-track {
+.marquee-content {
     display: inline-block;
 
-    animation: marquee 22s linear infinite;
+    font-size: 24px;
 
-    font-size: 25px;
     font-weight: 800;
 
-    letter-spacing: -1px;
+    animation: move 20s linear infinite;
 }
 
-@keyframes marquee {
+@keyframes move {
 
     from {
         transform: translateX(0);
@@ -284,22 +275,12 @@ a {
 }
 
 
-/* =====================================================
-   PRODUCTS
-===================================================== */
+/* =========================================================
+   PRODUCT SELECTOR
+========================================================= */
 
 .products {
     padding: 130px 6vw;
-}
-
-.section-top {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: end;
-
-    margin-bottom: 60px;
 }
 
 .section-label {
@@ -309,164 +290,79 @@ a {
 
     color: #888;
 
-    text-transform: uppercase;
-
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
-.section-title {
-    font-size: clamp(50px, 7vw, 95px);
+.section-heading {
+    font-size: clamp(55px, 8vw, 110px);
 
-    letter-spacing: -6px;
+    line-height: .82;
 
-    line-height: .85;
+    letter-spacing: -7px;
 }
 
-.section-description {
-    max-width: 360px;
+.product-selector {
+    margin-top: 65px;
 
-    color: #777;
+    display: flex;
 
-    line-height: 1.6;
+    gap: 10px;
+
+    flex-wrap: wrap;
 }
 
+.model-button {
+    padding: 14px 22px;
 
-/* =====================================================
-   PRODUCT GRID
-===================================================== */
+    border: 1px solid #ccc;
 
-.product-grid {
+    background: transparent;
 
-    display: grid;
+    border-radius: 30px;
 
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 20px;
-
+    transition: .25s;
 }
 
-.product-card {
-
-    position: relative;
-
-    min-height: 570px;
-
-    border-radius: 25px;
-
-    overflow: hidden;
-
-    color: white;
-
-    background: #222;
-
-    transition: .4s;
+.model-button:hover {
+    border-color: #111;
 }
 
-.product-card:hover {
-    transform: translateY(-8px);
-}
-
-.product-card.large {
-    grid-row: span 2;
-    min-height: 800px;
-}
-
-.product-card img {
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    position: absolute;
-
-    inset: 0;
-
-    transition: .7s;
-}
-
-.product-card:hover img {
-    transform: scale(1.06);
-}
-
-.product-overlay {
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.8),
-            transparent 60%
-        );
-}
-
-.product-info {
-
-    position: absolute;
-
-    bottom: 30px;
-    left: 30px;
-    right: 30px;
-
-    z-index: 2;
-}
-
-.product-info h3 {
-
-    font-size: 50px;
-
-    letter-spacing: -3px;
-
-    margin-bottom: 8px;
-
-}
-
-.product-info p {
-
-    color: #ddd;
-
-    line-height: 1.5;
-
-}
-
-.product-price {
-
-    margin-top: 18px;
-
-    font-weight: bold;
-
-}
-
-
-/* =====================================================
-   PRODUCT SELECTOR
-===================================================== */
-
-.selector {
-
-    padding: 120px 6vw;
-
+.model-button.active {
     background: #111;
-
     color: white;
+
+    border-color: #111;
 }
 
-.selector-wrapper {
+
+/* =========================================================
+   DYNAMIC PRODUCT AREA
+========================================================= */
+
+.product-display {
+
+    margin-top: 50px;
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.05fr .95fr;
 
-    gap: 80px;
+    gap: 70px;
 
-    align-items: center;
-
+    align-items: start;
 }
 
-.selector-image {
+
+/* IMAGE GALLERY */
+
+.gallery {
+    position: sticky;
+
+    top: 100px;
+}
+
+.main-image {
+    width: 100%;
 
     height: 650px;
 
@@ -474,385 +370,451 @@ a {
 
     overflow: hidden;
 
-    position: relative;
-
+    background: #ddd;
 }
 
-.selector-image img {
-
+.main-image img {
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 
-    transition: .5s;
-
+    transition:
+        opacity .25s,
+        transform .5s;
 }
 
-.selector-content h2 {
+.thumbnail-row {
+    display: grid;
 
-    font-size: clamp(55px, 7vw, 100px);
+    grid-template-columns: repeat(4, 1fr);
 
-    letter-spacing: -6px;
+    gap: 10px;
 
-    line-height: .85;
-
+    margin-top: 12px;
 }
 
-.selector-content > p {
+.thumbnail {
+    height: 110px;
 
-    margin-top: 25px;
+    border-radius: 12px;
 
+    overflow: hidden;
+
+    border: 2px solid transparent;
+
+    padding: 0;
+
+    background: #ddd;
+}
+
+.thumbnail.active {
+    border-color: #111;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* PRODUCT INFORMATION */
+
+.product-info {
+    padding-top: 10px;
+}
+
+.product-category {
     color: #888;
-
-    line-height: 1.6;
-
-    max-width: 450px;
-
-}
-
-
-/* COLORS */
-
-.color-title {
-
-    margin-top: 50px;
 
     font-size: 11px;
 
     letter-spacing: 3px;
 
-    color: #666;
-
+    text-transform: uppercase;
 }
 
-.colors {
+.product-info h2 {
+    font-size: clamp(55px, 7vw, 100px);
 
+    letter-spacing: -6px;
+
+    line-height: .82;
+
+    margin-top: 15px;
+}
+
+.product-description {
+    color: #666;
+
+    line-height: 1.7;
+
+    max-width: 480px;
+
+    margin-top: 30px;
+
+    font-size: 16px;
+}
+
+.product-price {
+    font-size: 38px;
+
+    font-weight: bold;
+
+    margin-top: 35px;
+}
+
+
+/* OPTIONS */
+
+.option-heading {
+    font-size: 11px;
+
+    color: #888;
+
+    letter-spacing: 3px;
+
+    margin-top: 45px;
+
+    margin-bottom: 16px;
+}
+
+.color-options {
     display: flex;
 
     gap: 12px;
 
-    margin-top: 18px;
-
+    flex-wrap: wrap;
 }
 
-.color {
-
-    width: 42px;
-    height: 42px;
+.color-option {
+    width: 43px;
+    height: 43px;
 
     border-radius: 50%;
 
-    border: 3px solid #111;
+    border: 3px solid #f5f5f2;
 
-    outline: 1px solid #444;
+    outline: 1px solid #bbb;
 
     transition: .25s;
-
 }
 
-.color:hover,
-.color.active {
+.color-option:hover {
+    transform: scale(1.1);
+}
 
-    outline: 2px solid white;
+.color-option.active {
+    outline: 2px solid #111;
 
     transform: scale(1.12);
-
 }
 
-.color.black {
-    background: #171717;
-}
-
-.color.blue {
-    background: #315bff;
-}
-
-.color.red {
-    background: #d6332e;
-}
-
-.color.green {
-    background: #416c54;
-}
-
-.color.gold {
-    background: #d2ae6d;
-}
-
-.color.silver {
-    background: #c9c9c5;
-}
-
-
-/* STORAGE */
-
-.storage {
-
-    margin-top: 35px;
-
+.storage-options {
     display: flex;
 
     gap: 10px;
-
 }
 
-.storage button {
-
+.storage-option {
     padding: 13px 20px;
-
-    border: 1px solid #333;
 
     background: transparent;
 
-    color: #888;
+    border: 1px solid #ccc;
 
     border-radius: 5px;
 
+    transition: .2s;
 }
 
-.storage button.active,
-.storage button:hover {
+.storage-option.active,
+.storage-option:hover {
+    background: #111;
 
     color: white;
 
-    border-color: white;
-
+    border-color: #111;
 }
 
-.selected-price {
 
-    font-size: 35px;
+/* ORDER */
 
-    margin-top: 35px;
-
-}
-
-.order {
-
+.order-button {
     width: 100%;
 
-    padding: 18px;
-
-    margin-top: 25px;
+    padding: 19px;
 
     border: none;
 
-    background: white;
+    background: #111;
 
-    color: black;
+    color: white;
 
-    font-weight: bold;
+    margin-top: 35px;
 
     border-radius: 4px;
 
-    transition: .25s;
+    font-weight: bold;
 
+    transition: .25s;
 }
 
-.order:hover {
-
-    background: #ddd;
+.order-button:hover {
+    background: #d93630;
 
     transform: translateY(-2px);
-
 }
 
 
-/* =====================================================
-   COLORS SECTION
-===================================================== */
+/* =========================================================
+   DYNAMIC SPECS
+========================================================= */
 
-.color-showcase {
+.dynamic-specs {
+    margin-top: 45px;
 
+    border-top: 1px solid #ddd;
+}
+
+.spec-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #ddd;
+
+    font-size: 13px;
+}
+
+.spec-item span:first-child {
+    color: #888;
+}
+
+.spec-item span:last-child {
+    font-weight: bold;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   FEATURE SECTIONS
+========================================================= */
+
+.features {
     padding: 130px 6vw;
 
+    background: #111;
+
+    color: white;
 }
 
-.color-grid {
+.feature-heading {
+    margin-bottom: 70px;
+}
 
+.feature-heading h2 {
+    font-size: clamp(55px, 8vw, 110px);
+
+    line-height: .82;
+
+    letter-spacing: -7px;
+}
+
+.feature-list {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 15px;
-
-    margin-top: 60px;
-
+    gap: 100px;
 }
 
-.color-card {
-
-    height: 380px;
-
-    border-radius: 20px;
-
-    position: relative;
-
-    overflow: hidden;
-
-    transition: .4s;
-
-}
-
-.color-card:hover {
-
-    transform: translateY(-10px);
-
-}
-
-.color-card img {
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-}
-
-.color-name {
-
-    position: absolute;
-
-    bottom: 20px;
-    left: 20px;
-
-    background: rgba(255,255,255,.9);
-
-    padding: 10px 15px;
-
-    border-radius: 30px;
-
-    font-size: 12px;
-
-}
-
-
-/* =====================================================
-   FEATURE SPLIT
-===================================================== */
-
-.feature {
-
+.feature-card {
     display: grid;
 
     grid-template-columns: 1fr 1fr;
 
-    min-height: 700px;
+    min-height: 550px;
 
+    background: #191919;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+}
+
+.feature-card:nth-child(even) {
+    direction: rtl;
+}
+
+.feature-card:nth-child(even) .feature-text {
+    direction: ltr;
 }
 
 .feature-image {
+    min-height: 550px;
 
     overflow: hidden;
-
 }
 
 .feature-image img {
-
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 
     transition: .7s;
-
 }
 
-.feature:hover img {
-
-    transform: scale(1.04);
-
+.feature-card:hover .feature-image img {
+    transform: scale(1.05);
 }
 
-.feature-content {
-
-    padding: 100px;
+.feature-text {
+    padding: 70px;
 
     display: flex;
 
     flex-direction: column;
 
     justify-content: center;
-
-    background: #dce5ff;
-
 }
 
-.feature-content h2 {
+.feature-number {
+    color: #666;
 
-    font-size: clamp(50px, 7vw, 100px);
+    font-size: 12px;
 
-    letter-spacing: -6px;
+    letter-spacing: 3px;
+}
+
+.feature-text h3 {
+    font-size: clamp(45px, 6vw, 80px);
+
+    letter-spacing: -5px;
 
     line-height: .85;
 
+    margin-top: 25px;
 }
 
-.feature-content p {
-
-    max-width: 450px;
-
-    margin-top: 30px;
-
-    color: #555;
+.feature-text p {
+    color: #888;
 
     line-height: 1.7;
 
+    margin-top: 30px;
+
+    max-width: 430px;
 }
 
 
-/* =====================================================
-   SPECS
-===================================================== */
+/* =========================================================
+   COLOR SHOWCASE
+========================================================= */
 
-.specs {
+.colors-section {
+    padding: 130px 6vw;
+}
 
-    background: #f5f5f2;
+.color-grid {
+    display: grid;
 
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 65px;
+}
+
+.color-card {
+    height: 400px;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    background: #ddd;
+}
+
+.color-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .6s;
+}
+
+.color-card:hover img {
+    transform: scale(1.06);
+}
+
+.color-card-label {
+    position: absolute;
+
+    left: 20px;
+    bottom: 20px;
+
+    padding: 10px 15px;
+
+    background: rgba(255,255,255,.9);
+
+    border-radius: 30px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   SPECS SECTION
+========================================================= */
+
+.specs-section {
     padding: 130px 6vw;
 
+    background: #e4ebff;
 }
 
-.spec-table {
-
+.specs-table {
     margin-top: 60px;
 
-    border-top: 1px solid #ccc;
-
+    border-top: 1px solid #b9c4df;
 }
 
 .spec-row {
-
     display: grid;
 
     grid-template-columns: 1fr 1fr;
 
     padding: 25px 0;
 
-    border-bottom: 1px solid #ccc;
-
+    border-bottom: 1px solid #b9c4df;
 }
 
 .spec-row span:first-child {
-
-    color: #888;
-
+    color: #66708a;
 }
 
 .spec-row span:last-child {
-
     font-weight: bold;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    CTA
-===================================================== */
+========================================================= */
 
 .cta {
-
     min-height: 80vh;
 
     padding: 100px 6vw;
@@ -866,46 +828,38 @@ a {
     flex-direction: column;
 
     justify-content: center;
-
 }
 
 .cta small {
-
     letter-spacing: 4px;
-
-    margin-bottom: 30px;
-
 }
 
 .cta h2 {
-
     font-size: clamp(65px, 12vw, 170px);
 
     letter-spacing: -10px;
 
     line-height: .78;
 
+    margin-top: 25px;
 }
 
 .cta p {
+    color: #ffd9d7;
 
     max-width: 450px;
 
+    line-height: 1.7;
+
     margin-top: 35px;
-
-    color: #ffd9d7;
-
-    line-height: 1.6;
-
 }
 
 .cta button {
-
     width: fit-content;
 
     margin-top: 35px;
 
-    padding: 16px 27px;
+    padding: 16px 28px;
 
     border: none;
 
@@ -916,108 +870,91 @@ a {
     color: #111;
 
     font-weight: bold;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
 footer {
-
     background: #111;
 
     color: white;
 
     padding: 70px 6vw;
-
 }
 
 .footer-top {
-
     display: flex;
 
     justify-content: space-between;
 
-    align-items: start;
-
+    gap: 50px;
 }
 
 .footer-logo {
-
-    font-size: 40px;
+    font-size: 45px;
 
     font-weight: 900;
 
-    letter-spacing: -3px;
-
+    letter-spacing: -4px;
 }
 
 .footer-links {
-
     display: flex;
 
-    gap: 50px;
-
+    gap: 60px;
 }
 
 .footer-column h4 {
-
     color: #666;
 
-    font-size: 11px;
+    font-size: 10px;
 
     letter-spacing: 2px;
 
     margin-bottom: 18px;
-
 }
 
 .footer-column a {
-
     display: block;
-
-    margin-bottom: 10px;
 
     color: #aaa;
 
     font-size: 13px;
 
+    margin-bottom: 10px;
 }
 
 .footer-bottom {
-
     border-top: 1px solid #292929;
 
-    margin-top: 70px;
+    margin-top: 60px;
 
     padding-top: 20px;
 
     color: #555;
 
     font-size: 12px;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    TOAST
-===================================================== */
+========================================================= */
 
 .toast {
-
     position: fixed;
 
-    bottom: 25px;
-
     left: 50%;
+    bottom: 25px;
 
     transform: translate(-50%, 100px);
 
     background: white;
 
-    color: black;
+    color: #111;
 
     padding: 15px 25px;
 
@@ -1025,24 +962,21 @@ footer {
 
     font-size: 13px;
 
-    z-index: 3000;
+    z-index: 5000;
+
+    box-shadow: 0 15px 50px rgba(0,0,0,.25);
 
     transition: .4s;
-
-    box-shadow: 0 10px 40px rgba(0,0,0,.25);
-
 }
 
 .toast.show {
-
     transform: translate(-50%, 0);
-
 }
 
 
-/* =====================================================
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
 
 @media(max-width: 850px) {
 
@@ -1051,131 +985,94 @@ footer {
     }
 
     .hero {
-
         grid-template-columns: 1fr;
 
-        padding-top: 120px;
-
+        padding-top: 125px;
     }
 
-    .hero-image {
-
+    .hero-visual {
         height: 500px;
-
     }
 
-    .section-top {
-
-        display: block;
-
-    }
-
-    .section-description {
-
-        margin-top: 25px;
-
-    }
-
-    .product-grid {
-
+    .product-display {
         grid-template-columns: 1fr;
 
+        gap: 40px;
     }
 
-    .product-card.large {
-
-        grid-row: auto;
-
-        min-height: 600px;
-
+    .gallery {
+        position: static;
     }
 
-    .selector-wrapper {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .selector-image {
-
+    .main-image {
         height: 500px;
-
     }
 
-    .color-grid {
-
-        grid-template-columns: 1fr 1fr;
-
-    }
-
-    .feature {
-
+    .feature-card,
+    .feature-card:nth-child(even) {
         grid-template-columns: 1fr;
 
+        direction: ltr;
     }
 
     .feature-image {
-
-        height: 500px;
-
+        min-height: 400px;
     }
 
-    .feature-content {
-
-        padding: 70px 6vw;
-
-    }
-
-    .footer-top {
-
-        flex-direction: column;
-
-        gap: 50px;
-
-    }
-
-    .footer-links {
-
-        flex-wrap: wrap;
-
-        gap: 35px;
-
-    }
-
-}
-
-@media(max-width: 500px) {
-
-    .hero h1 {
-
-        letter-spacing: -5px;
-
-    }
-
-    .hero-buttons {
-
-        flex-direction: column;
-
-    }
-
-    .hero-button {
-
-        text-align: center;
-
+    .feature-text {
+        padding: 60px 30px;
     }
 
     .color-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+}
+
+@media(max-width: 520px) {
+
+    .hero h1,
+    .section-heading,
+    .section-title {
+        letter-spacing: -5px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .product-selector {
+        flex-direction: column;
+    }
+
+    .model-button {
+        width: 100%;
+    }
+
+    .color-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .thumbnail {
+        height: 80px;
+    }
+
+    .spec-row {
         grid-template-columns: 1fr;
 
+        gap: 8px;
     }
 
-    .cta h2 {
-
-        letter-spacing: -5px;
-
+    .spec-row span:last-child {
+        text-align: left;
     }
-
 }
 
 </style>
@@ -1185,9 +1082,9 @@ footer {
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================================
      NAVIGATION
-===================================================== -->
+========================================================= -->
 
 <nav class="navbar">
 
@@ -1197,58 +1094,64 @@ footer {
 
     <div class="nav-links">
 
-        <a href="#products">Products</a>
+        <a href="#products">
+            Products
+        </a>
 
-        <a href="#configure">Configure</a>
+        <a href="#configure">
+            Configure
+        </a>
 
-        <a href="#technology">Technology</a>
+        <a href="#technology">
+            Technology
+        </a>
 
-        <a href="#specs">Specs</a>
+        <a href="#specifications">
+            Specs
+        </a>
 
     </div>
 
-    <a href="#configure" class="nav-button">
+    <a href="#configure" class="shop-button">
         Shop ARC
     </a>
 
 </nav>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HERO
-===================================================== -->
+========================================================= -->
 
 <section class="hero">
 
     <div>
 
-        <div class="hero-small">
+        <div class="hero-label">
             ARC INDUSTRIES · 2026
         </div>
 
         <h1>
-            MAKE IT<br>
-            <span>YOURS.</span>
+            MAKE<br>
+            IT <span>YOURS.</span>
         </h1>
 
         <p class="hero-text">
-
-            Technology doesn't have to look the same
-            for everyone. Meet a new generation of
-            devices built around your style.
-
+            One product family. Multiple personalities.
+            Choose your device, choose your finish,
+            and build the ARC that fits you.
         </p>
 
         <div class="hero-buttons">
 
             <a href="#products"
                class="hero-button primary">
-                Explore products
+                Explore ARC
             </a>
 
             <a href="#configure"
                class="hero-button">
-                Build your ARC
+                Configure now
             </a>
 
         </div>
@@ -1256,14 +1159,14 @@ footer {
     </div>
 
 
-    <div class="hero-image">
+    <div class="hero-visual">
 
         <img
-        src="https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1400"
-        alt="Smartphone">
+            src="https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="ARC technology">
 
-        <div class="hero-label">
-            ARC ONE · NEW
+        <div class="hero-tag">
+            ARC ONE · FLAGSHIP
         </div>
 
     </div>
@@ -1271,260 +1174,158 @@ footer {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      MARQUEE
-===================================================== -->
+========================================================= -->
 
 <div class="marquee">
 
-    <div class="marquee-track">
+    <div class="marquee-content">
 
-        ARC ONE · ARC MINI · ARC TAB · ARC WATCH ·
-        DESIGNED DIFFERENTLY · ARC ONE · ARC MINI ·
-        ARC TAB · ARC WATCH · DESIGNED DIFFERENTLY ·
+        ARC ONE · ONE MINI · ARC TAB · ARC WATCH ·
+        DESIGN YOURS · ARC ONE · ONE MINI · ARC TAB ·
+        ARC WATCH · DESIGN YOURS ·
 
     </div>
 
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      PRODUCTS
-===================================================== -->
+========================================================= -->
 
 <section class="products" id="products">
 
-    <div class="section-top">
+    <div class="section-label">
+        01 / Product family
+    </div>
 
-        <div>
+    <h2 class="section-heading">
+        FIND<br>
+        YOUR ARC.
+    </h2>
 
-            <div class="section-label">
-                01 / Products
-            </div>
 
-            <h2 class="section-title">
-                MEET<br>THE ARC.
-            </h2>
+    <div class="product-selector">
 
-        </div>
+        <button
+            class="model-button active"
+            data-model="one">
+            ARC ONE
+        </button>
 
-        <p class="section-description">
+        <button
+            class="model-button"
+            data-model="mini">
+            ONE MINI
+        </button>
 
-            Four devices. One design language.
-            Pick the technology that fits the way
-            you actually live.
+        <button
+            class="model-button"
+            data-model="tab">
+            ARC TAB
+        </button>
 
-        </p>
+        <button
+            class="model-button"
+            data-model="watch">
+            ARC WATCH
+        </button>
 
     </div>
 
 
-    <div class="product-grid">
+    <!-- DYNAMIC PRODUCT -->
 
+    <div
+        class="product-display"
+        id="configure">
 
-        <!-- PHONE -->
 
-        <div class="product-card large">
+        <!-- GALLERY -->
 
-            <img
-            src="https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1400"
-            alt="ARC ONE phone">
+        <div class="gallery">
 
-            <div class="product-overlay"></div>
+            <div class="main-image">
 
-            <div class="product-info">
-
-                <h3>ARC ONE</h3>
-
-                <p>
-                    The flagship.
-                    Fast, expressive and built to be noticed.
-                </p>
-
-                <div class="product-price">
-                    From $799
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- MINI -->
-
-        <div class="product-card">
-
-            <img
-            src="https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=1000"
-            alt="Compact smartphone">
-
-            <div class="product-overlay"></div>
-
-            <div class="product-info">
-
-                <h3>ONE MINI</h3>
-
-                <p>
-                    Small body. Serious hardware.
-                </p>
-
-                <div class="product-price">
-                    From $649
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- TABLET -->
-
-        <div class="product-card">
-
-            <img
-            src="https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=1000"
-            alt="Tablet">
-
-            <div class="product-overlay"></div>
-
-            <div class="product-info">
-
-                <h3>ARC TAB</h3>
-
-                <p>
-                    A bigger canvas for bigger ideas.
-                </p>
-
-                <div class="product-price">
-                    From $699
-                </div>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     CONFIGURATOR
-===================================================== -->
-
-<section class="selector" id="configure">
-
-    <div class="selector-wrapper">
-
-
-        <div class="selector-image">
-
-            <img
-            id="productImage"
-            src="https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1400"
-            alt="Selected ARC product">
-
-        </div>
-
-
-        <div class="selector-content">
-
-            <div class="section-label">
-                02 / Configure
-            </div>
-
-            <h2>
-                YOUR<br>
-                ONE.
-            </h2>
-
-            <p>
-                Choose a finish. Pick your storage.
-                Make ARC ONE look like yours.
-            </p>
-
-
-            <div class="color-title">
-                FINISH
-            </div>
-
-            <div class="colors">
-
-                <button
-                    class="color black active"
-                    data-name="Obsidian">
-                </button>
-
-                <button
-                    class="color blue"
-                    data-name="Electric Blue">
-                </button>
-
-                <button
-                    class="color red"
-                    data-name="Signal Red">
-                </button>
-
-                <button
-                    class="color green"
-                    data-name="Forest Green">
-                </button>
-
-                <button
-                    class="color gold"
-                    data-name="Soft Gold">
-                </button>
-
-                <button
-                    class="color silver"
-                    data-name="Arctic Silver">
-                </button>
-
-            </div>
-
-
-            <div class="color-title">
-                STORAGE
-            </div>
-
-            <div class="storage">
-
-                <button
-                    class="active"
-                    data-storage="128GB"
-                    data-price="799">
-                    128GB
-                </button>
-
-                <button
-                    data-storage="256GB"
-                    data-price="899">
-                    256GB
-                </button>
-
-                <button
-                    data-storage="512GB"
-                    data-price="1099">
-                    512GB
-                </button>
+                <img
+                    id="mainProductImage"
+                    src=""
+                    alt="Selected ARC product">
 
             </div>
 
 
             <div
-                class="selected-price"
-                id="selectedPrice">
-                $799
+                class="thumbnail-row"
+                id="thumbnailRow">
             </div>
 
-            <p id="selectedConfiguration"
-               style="margin-top:10px;color:#777;">
-                Obsidian · 128GB
+        </div>
+
+
+        <!-- PRODUCT INFO -->
+
+        <div class="product-info">
+
+            <div
+                class="product-category"
+                id="productCategory">
+            </div>
+
+            <h2 id="productName">
+            </h2>
+
+            <p
+                class="product-description"
+                id="productDescription">
             </p>
 
-            <button class="order" id="orderButton">
-                ORDER ARC ONE
+            <div
+                class="product-price"
+                id="productPrice">
+            </div>
+
+
+            <!-- COLORS -->
+
+            <div class="option-heading">
+                CHOOSE YOUR FINISH
+            </div>
+
+            <div
+                class="color-options"
+                id="colorOptions">
+            </div>
+
+
+            <!-- STORAGE -->
+
+            <div
+                class="option-heading"
+                id="storageHeading">
+                STORAGE
+            </div>
+
+            <div
+                class="storage-options"
+                id="storageOptions">
+            </div>
+
+
+            <!-- SPECS -->
+
+            <div
+                class="dynamic-specs"
+                id="dynamicSpecs">
+            </div>
+
+
+            <button
+                class="order-button"
+                id="orderButton">
+                ORDER NOW
             </button>
 
         </div>
@@ -1534,192 +1335,117 @@ footer {
 </section>
 
 
-<!-- =====================================================
-     COLOR SHOWCASE
-===================================================== -->
+<!-- =========================================================
+     FEATURES
+========================================================= -->
 
-<section class="color-showcase">
+<section
+    class="features"
+    id="technology">
 
-    <div class="section-label">
-        03 / The finishes
-    </div>
-
-    <h2 class="section-title">
-        PICK<br>YOUR COLOR.
-    </h2>
-
-
-    <div class="color-grid">
-
-
-        <div class="color-card">
-
-            <img
-            src="https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=900">
-
-            <div class="color-name">
-                OBSIDIAN
-            </div>
-
-        </div>
-
-
-        <div class="color-card">
-
-            <img
-            src="https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=900">
-
-            <div class="color-name">
-                ELECTRIC BLUE
-            </div>
-
-        </div>
-
-
-        <div class="color-card">
-
-            <img
-            src="https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=900">
-
-            <div class="color-name">
-                SIGNAL RED
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     TECHNOLOGY
-===================================================== -->
-
-<section class="feature" id="technology">
-
-
-    <div class="feature-image">
-
-        <img
-        src="https://images.pexels.com/photos/5053740/pexels-photo-5053740.jpeg?auto=compress&cs=tinysrgb&w=1400"
-        alt="Technology">
-
-    </div>
-
-
-    <div class="feature-content">
+    <div class="feature-heading">
 
         <div class="section-label">
-            04 / Camera
+            02 / Built around the product
         </div>
 
         <h2>
-            SEE<br>
-            MORE.
+            EVERY<br>
+            DETAIL<br>
+            MATTERS.
         </h2>
 
-        <p>
-            ARC ONE's 48MP camera system is designed
-            to capture sharp detail, natural colors and
-            the moments that don't happen twice.
-        </p>
+    </div>
 
+
+    <div
+        class="feature-list"
+        id="featureList">
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     SPECS
-===================================================== -->
+<!-- =========================================================
+     COLOR SHOWCASE
+========================================================= -->
 
-<section class="specs" id="specs">
+<section class="colors-section">
 
     <div class="section-label">
-        05 / Specifications
+        03 / Finishes
     </div>
 
-    <h2 class="section-title">
+    <h2 class="section-heading">
+        COLOUR<br>
+        YOUR WAY.
+    </h2>
+
+
+    <div
+        class="color-grid"
+        id="colorShowcase">
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SPECIFICATIONS
+========================================================= -->
+
+<section
+    class="specs-section"
+    id="specifications">
+
+    <div class="section-label">
+        04 / Current model specifications
+    </div>
+
+    <h2 class="section-heading">
         THE<br>
         NUMBERS.
     </h2>
 
 
-    <div class="spec-table">
-
-
-        <div class="spec-row">
-            <span>Display</span>
-            <span>6.4" OLED · 120Hz</span>
-        </div>
-
-        <div class="spec-row">
-            <span>Main Camera</span>
-            <span>48MP Wide + 12MP Ultra Wide</span>
-        </div>
-
-        <div class="spec-row">
-            <span>Processor</span>
-            <span>ARC A1 · 4nm</span>
-        </div>
-
-        <div class="spec-row">
-            <span>Battery</span>
-            <span>5,200 mAh</span>
-        </div>
-
-        <div class="spec-row">
-            <span>Charging</span>
-            <span>80W Wired · 30W Wireless</span>
-        </div>
-
-        <div class="spec-row">
-            <span>Water Resistance</span>
-            <span>IP68</span>
-        </div>
-
-        <div class="spec-row">
-            <span>Operating System</span>
-            <span>ARC OS</span>
-        </div>
-
+    <div
+        class="specs-table"
+        id="largeSpecs">
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     FINAL CTA
-===================================================== -->
+<!-- =========================================================
+     CTA
+========================================================= -->
 
 <section class="cta">
 
     <small>
-        ARC ONE · 2026
+        ARC · 2026
     </small>
 
     <h2>
-        BE<br>
-        DIFFERENT.
+        MAKE<br>
+        YOURS.
     </h2>
 
     <p>
-        Your phone is something you carry every day.
-        It might as well feel like yours.
+        Pick a model. Pick a finish.
+        Pick the way you want technology to feel.
     </p>
 
-    <button onclick="scrollToConfigure()">
-        BUILD YOUR ARC
+    <button onclick="goToConfigure()">
+        CONFIGURE YOUR ARC
     </button>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer>
 
@@ -1729,9 +1455,7 @@ footer {
             ARC
         </div>
 
-
         <div class="footer-links">
-
 
             <div class="footer-column">
 
@@ -1749,42 +1473,46 @@ footer {
                     ARC TAB
                 </a>
 
+                <a href="#products">
+                    ARC WATCH
+                </a>
+
             </div>
 
 
             <div class="footer-column">
 
-                <h4>COMPANY</h4>
+                <h4>EXPLORE</h4>
+
+                <a href="#technology">
+                    Technology
+                </a>
+
+                <a href="#specifications">
+                    Specifications
+                </a>
+
+                <a href="#configure">
+                    Configure
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>ARC</h4>
 
                 <a href="#">
                     About
                 </a>
 
                 <a href="#">
-                    Careers
-                </a>
-
-                <a href="#">
                     Contact
                 </a>
 
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>FOLLOW</h4>
-
                 <a href="#">
-                    Instagram
-                </a>
-
-                <a href="#">
-                    X
-                </a>
-
-                <a href="#">
-                    YouTube
+                    Careers
                 </a>
 
             </div>
@@ -1795,168 +1523,1208 @@ footer {
 
 
     <div class="footer-bottom">
-
         © 2026 ARC INDUSTRIES · Fictional concept website
-
     </div>
 
 </footer>
 
 
-<!-- =====================================================
-     TOAST
-===================================================== -->
+<!-- TOAST -->
 
-<div class="toast" id="toast"></div>
+<div
+    class="toast"
+    id="toast">
+</div>
 
 
 <script>
 
+/* =========================================================
+   PRODUCT DATABASE
+=========================================================
+
+   EVERYTHING FOR EACH PRODUCT IS STORED HERE.
+
+   When the user changes model:
+   - name changes
+   - description changes
+   - images change
+   - colors change
+   - storage changes
+   - price changes
+   - specifications change
+   - feature images change
+========================================================= */
+
+
+const products = {
+
 
 /* =====================================================
-   PRODUCT CONFIGURATION
+   ARC ONE
 ===================================================== */
 
-let selectedColor = "Obsidian";
+one: {
 
-let selectedStorage = "128GB";
+    name: "ARC ONE",
 
-let selectedPrice = "799";
+    category: "FLAGSHIP SMARTPHONE",
+
+    description:
+        "The flagship ARC smartphone built for people who want serious performance, expressive photography and a design that stands apart.",
+
+    basePrice: 799,
+
+    colors: {
+
+        "Obsidian": {
+            value: "#171717",
+
+            image:
+            "https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        },
+
+        "Electric Blue": {
+            value: "#315bff",
+
+            image:
+            "https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        },
+
+        "Signal Red": {
+            value: "#d93630",
+
+            image:
+            "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        },
+
+        "Forest Green": {
+            value: "#416c54",
+
+            image:
+            "https://images.pexels.com/photos/5053740/pexels-photo-5053740.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        }
+
+    },
+
+    storage: {
+
+        "128GB": 799,
+        "256GB": 899,
+        "512GB": 1099
+
+    },
+
+    images: [
+
+        "https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1600",
+
+        "https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1600",
+
+        "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=1600",
+
+        "https://images.pexels.com/photos/5053740/pexels-photo-5053740.jpeg?auto=compress&cs=tinysrgb&w=1600"
+
+    ],
+
+    specs: {
+
+        "Display": "6.4-inch OLED · 120Hz",
+
+        "Camera": "48MP + 12MP Ultra Wide",
+
+        "Processor": "ARC A1 · 4nm",
+
+        "Battery": "5,200 mAh",
+
+        "Charging": "80W Wired · 30W Wireless",
+
+        "Protection": "IP68",
+
+        "OS": "ARC OS"
+
+    },
+
+    features: [
+
+        {
+            number: "01 / CAMERA",
+
+            title: "SEE MORE.",
+
+            text:
+                "A 48MP camera system designed to capture detail, color and the moments that happen once.",
+
+            image:
+                "https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        },
+
+        {
+            number: "02 / PERFORMANCE",
+
+            title: "MOVE FAST.",
+
+            text:
+                "ARC A1 gives the flagship enough power for demanding apps, gaming and creative work.",
+
+            image:
+                "https://images.pexels.com/photos/5053740/pexels-photo-5053740.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        },
+
+        {
+            number: "03 / DESIGN",
+
+            title: "FEEL DIFFERENT.",
+
+            text:
+                "A carefully shaped body with a focus on comfortable edges, tactile controls and visual simplicity.",
+
+            image:
+                "https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        }
+
+    ]
+
+},
 
 
-const colors =
-    document.querySelectorAll(".color");
+/* =====================================================
+   ONE MINI
+===================================================== */
 
-const storages =
-    document.querySelectorAll(".storage button");
+mini: {
 
-const price =
-    document.getElementById("selectedPrice");
+    name: "ONE MINI",
 
-const configuration =
-    document.getElementById(
-        "selectedConfiguration"
-    );
+    category: "COMPACT SMARTPHONE",
+
+    description:
+        "Everything important from ARC ONE, compressed into a smaller body for people who prefer a phone that disappears into their pocket.",
+
+    basePrice: 649,
+
+    colors: {
+
+        "Midnight": {
+            value: "#151515",
+
+            image:
+            "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        },
+
+        "Sky Blue": {
+            value: "#6196d8",
+
+            image:
+            "https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        },
+
+        "Coral": {
+            value: "#e27669",
+
+            image:
+            "https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        }
+
+    },
+
+    storage: {
+
+        "128GB": 649,
+        "256GB": 749
+
+    },
+
+    images: [
+
+        "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=1600",
+
+        "https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1600",
+
+        "https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1600"
+
+    ],
+
+    specs: {
+
+        "Display": "5.9-inch OLED · 120Hz",
+
+        "Camera": "48MP Dual Camera",
+
+        "Processor": "ARC A1 Mini",
+
+        "Battery": "4,400 mAh",
+
+        "Charging": "65W Wired",
+
+        "Protection": "IP68",
+
+        "OS": "ARC OS"
+
+    },
+
+    features: [
+
+        {
+            number: "01 / SIZE",
+
+            title: "SMALLER.",
+
+            text:
+                "A compact body without turning the experience into a compromise.",
+
+            image:
+                "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        },
+
+        {
+            number: "02 / CAMERA",
+
+            title: "STILL SHARP.",
+
+            text:
+                "A compact camera system tuned for everyday photographs and video.",
+
+            image:
+                "https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        },
+
+        {
+            number: "03 / BATTERY",
+
+            title: "ALL DAY.",
+
+            text:
+                "Efficient hardware gives the Mini enough endurance for a full day.",
+
+            image:
+                "https://images.pexels.com/photos/5053740/pexels-photo-5053740.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        }
+
+    ]
+
+},
+
+
+/* =====================================================
+   ARC TAB
+===================================================== */
+
+tab: {
+
+    name: "ARC TAB",
+
+    category: "CREATIVE TABLET",
+
+    description:
+        "A large-format device for drawing, studying, designing, editing and everything that needs more room.",
+
+    basePrice: 699,
+
+    colors: {
+
+        "Graphite": {
+            value: "#252525",
+
+            image:
+            "https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        },
+
+        "Silver": {
+            value: "#c9c9c9",
+
+            image:
+            "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        },
+
+        "Blue": {
+            value: "#315bff",
+
+            image:
+            "https://images.pexels.com/photos/161853/tablet-technology-touch-screen-161853.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        }
+
+    },
+
+    storage: {
+
+        "128GB": 699,
+        "256GB": 799,
+        "512GB": 999
+
+    },
+
+    images: [
+
+        "https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=1600",
+
+        "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1600",
+
+        "https://images.pexels.com/photos/161853/tablet-technology-touch-screen-161853.jpeg?auto=compress&cs=tinysrgb&w=1600",
+
+        "https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=1600"
+
+    ],
+
+    specs: {
+
+        "Display": "12.9-inch OLED · 120Hz",
+
+        "Resolution": "2732 × 2048",
+
+        "Processor": "ARC A2",
+
+        "Battery": "10,500 mAh",
+
+        "Charging": "80W",
+
+        "Stylus": "ARC Pencil Support",
+
+        "OS": "ARC OS Tablet"
+
+    },
+
+    features: [
+
+        {
+            number: "01 / DISPLAY",
+
+            title: "MORE ROOM.",
+
+            text:
+                "A large OLED canvas designed for creative work, entertainment and multitasking.",
+
+            image:
+                "https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        },
+
+        {
+            number: "02 / CREATIVE",
+
+            title: "MAKE MORE.",
+
+            text:
+                "Designed around drawing, editing, writing and visual work.",
+
+            image:
+                "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        },
+
+        {
+            number: "03 / BATTERY",
+
+            title: "KEEP GOING.",
+
+            text:
+                "A large battery keeps your creative sessions moving without constantly looking for a charger.",
+
+            image:
+                "https://images.pexels.com/photos/161853/tablet-technology-touch-screen-161853.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        }
+
+    ]
+
+},
+
+
+/* =====================================================
+   ARC WATCH
+===================================================== */
+
+watch: {
+
+    name: "ARC WATCH",
+
+    category: "SMARTWATCH",
+
+    description:
+        "A compact everyday companion for notifications, activity tracking and quick information without reaching for your phone.",
+
+    basePrice: 299,
+
+    colors: {
+
+        "Black": {
+            value: "#111111",
+
+            image:
+            "https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        },
+
+        "Silver": {
+            value: "#c5c5c5",
+
+            image:
+            "https://images.pexels.com/photos/277394/pexels-photo-277394.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        },
+
+        "Blue": {
+            value: "#315bff",
+
+            image:
+            "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        }
+
+    },
+
+    storage: {
+
+        "32GB": 299,
+        "64GB": 349
+
+    },
+
+    images: [
+
+        "https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=1600",
+
+        "https://images.pexels.com/photos/277394/pexels-photo-277394.jpeg?auto=compress&cs=tinysrgb&w=1600",
+
+        "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1600"
+
+    ],
+
+    specs: {
+
+        "Display": "1.9-inch AMOLED",
+
+        "Processor": "ARC W1",
+
+        "Battery": "Up to 7 days",
+
+        "Water Resistance": "5ATM",
+
+        "Sensors": "Heart Rate · Motion · SpO₂",
+
+        "Connectivity": "Bluetooth · Wi-Fi",
+
+        "OS": "ARC Wear"
+
+    },
+
+    features: [
+
+        {
+            number: "01 / DISPLAY",
+
+            title: "AT A GLANCE.",
+
+            text:
+                "Important information appears where you need it without taking your phone out.",
+
+            image:
+                "https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        },
+
+        {
+            number: "02 / ACTIVITY",
+
+            title: "KEEP MOVING.",
+
+            text:
+                "Activity and movement tracking built into a watch designed for everyday wear.",
+
+            image:
+                "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        },
+
+        {
+            number: "03 / DESIGN",
+
+            title: "WEAR IT.",
+
+            text:
+                "A simple silhouette designed to work with your everyday clothes.",
+
+            image:
+                "https://images.pexels.com/photos/277394/pexels-photo-277394.jpeg?auto=compress&cs=tinysrgb&w=1400"
+        }
+
+    ]
+
+}
+
+};
+
+
+/* =========================================================
+   CURRENT STATE
+========================================================= */
+
+let currentModel = "one";
+
+let currentColor = "Obsidian";
+
+let currentStorage = "128GB";
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const modelButtons =
+    document.querySelectorAll(".model-button");
+
+const mainImage =
+    document.getElementById("mainProductImage");
+
+const thumbnailRow =
+    document.getElementById("thumbnailRow");
+
+const productName =
+    document.getElementById("productName");
+
+const productCategory =
+    document.getElementById("productCategory");
+
+const productDescription =
+    document.getElementById("productDescription");
+
+const productPrice =
+    document.getElementById("productPrice");
+
+const colorOptions =
+    document.getElementById("colorOptions");
+
+const storageOptions =
+    document.getElementById("storageOptions");
+
+const dynamicSpecs =
+    document.getElementById("dynamicSpecs");
+
+const featureList =
+    document.getElementById("featureList");
+
+const largeSpecs =
+    document.getElementById("largeSpecs");
+
+const colorShowcase =
+    document.getElementById("colorShowcase");
+
+const storageHeading =
+    document.getElementById("storageHeading");
 
 const toast =
     document.getElementById("toast");
 
 
-/* =====================================================
-   COLOR SELECTION
-===================================================== */
+/* =========================================================
+   CHANGE MODEL
+========================================================= */
 
-colors.forEach(color => {
+modelButtons.forEach(button => {
 
-    color.addEventListener("click", () => {
+    button.addEventListener("click", () => {
 
-        colors.forEach(item => {
+        currentModel =
+            button.dataset.model;
+
+        currentColor =
+            Object.keys(
+                products[currentModel].colors
+            )[0];
+
+        currentStorage =
+            Object.keys(
+                products[currentModel].storage
+            )[0];
+
+        modelButtons.forEach(item => {
 
             item.classList.remove("active");
 
         });
 
-        color.classList.add("active");
+        button.classList.add("active");
 
-        selectedColor =
-            color.dataset.name;
+        renderProduct();
 
-        updateConfiguration();
+        document
+            .getElementById("configure")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
 
     });
 
 });
 
 
-/* =====================================================
-   STORAGE SELECTION
-===================================================== */
+/* =========================================================
+   RENDER EVERYTHING
+========================================================= */
 
-storages.forEach(storage => {
+function renderProduct() {
 
-    storage.addEventListener("click", () => {
-
-        storages.forEach(item => {
-
-            item.classList.remove("active");
-
-        });
-
-        storage.classList.add("active");
-
-        selectedStorage =
-            storage.dataset.storage;
-
-        selectedPrice =
-            storage.dataset.price;
-
-        updateConfiguration();
-
-    });
-
-});
+    const product =
+        products[currentModel];
 
 
-/* =====================================================
-   UPDATE CONFIGURATION
-===================================================== */
+    /* PRODUCT TEXT */
 
-function updateConfiguration() {
+    productName.textContent =
+        product.name;
 
-    price.textContent =
-        "$" + selectedPrice;
+    productCategory.textContent =
+        product.category;
 
-    configuration.textContent =
-        selectedColor +
-        " · " +
-        selectedStorage;
+    productDescription.textContent =
+        product.description;
+
+
+    /* MAIN IMAGE */
+
+    updateMainImage();
+
+
+    /* THUMBNAILS */
+
+    renderThumbnails(product);
+
+
+    /* COLORS */
+
+    renderColors(product);
+
+
+    /* STORAGE */
+
+    renderStorage(product);
+
+
+    /* SPECS */
+
+    renderSpecs(product);
+
+
+    /* FEATURES */
+
+    renderFeatures(product);
+
+
+    /* COLOR SHOWCASE */
+
+    renderColorShowcase(product);
+
+
+    /* LARGE SPECS */
+
+    renderLargeSpecs(product);
 
 }
 
 
-/* =====================================================
-   ORDER BUTTON
-===================================================== */
+/* =========================================================
+   MAIN IMAGE
+========================================================= */
 
-document
-    .getElementById("orderButton")
-    .addEventListener("click", () => {
+function updateMainImage() {
 
-        showToast(
-            "ARC ONE · " +
-            selectedColor +
-            " · " +
-            selectedStorage +
-            " added to your configuration."
-        );
+    const product =
+        products[currentModel];
 
-    });
+    const color =
+        product.colors[currentColor];
 
-
-/* =====================================================
-   TOAST
-===================================================== */
-
-function showToast(text) {
-
-    toast.textContent = text;
-
-    toast.classList.add("show");
+    mainImage.style.opacity = "0";
 
     setTimeout(() => {
 
-        toast.classList.remove("show");
+        mainImage.src =
+            color.image;
+
+        mainImage.style.opacity = "1";
+
+    }, 120);
+
+}
+
+
+/* =========================================================
+   THUMBNAILS
+========================================================= */
+
+function renderThumbnails(product) {
+
+    thumbnailRow.innerHTML = "";
+
+    product.images.forEach(
+        (image, index) => {
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "thumbnail";
+
+            if (index === 0) {
+
+                button.classList.add("active");
+
+            }
+
+            const img =
+                document.createElement("img");
+
+            img.src = image;
+
+            img.alt =
+                product.name +
+                " product image " +
+                (index + 1);
+
+            button.appendChild(img);
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    document
+                        .querySelectorAll(".thumbnail")
+                        .forEach(item => {
+
+                            item.classList.remove(
+                                "active"
+                            );
+
+                        });
+
+                    button.classList.add("active");
+
+                    mainImage.style.opacity = "0";
+
+                    setTimeout(() => {
+
+                        mainImage.src = image;
+
+                        mainImage.style.opacity =
+                            "1";
+
+                    }, 120);
+
+                }
+            );
+
+            thumbnailRow.appendChild(button);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   COLORS
+========================================================= */
+
+function renderColors(product) {
+
+    colorOptions.innerHTML = "";
+
+    Object.entries(product.colors)
+        .forEach(
+            ([name, color]) => {
+
+                const button =
+                    document.createElement("button");
+
+                button.className =
+                    "color-option";
+
+                button.style.background =
+                    color.value;
+
+                button.title = name;
+
+                if (name === currentColor) {
+
+                    button.classList.add(
+                        "active"
+                    );
+
+                }
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        currentColor =
+                            name;
+
+                        document
+                            .querySelectorAll(
+                                ".color-option"
+                            )
+                            .forEach(item => {
+
+                                item.classList.remove(
+                                    "active"
+                                );
+
+                            });
+
+                        button.classList.add(
+                            "active"
+                        );
+
+                        updateMainImage();
+
+                        updatePrice();
+
+                        showToast(
+                            product.name +
+                            " · " +
+                            name
+                        );
+
+                    }
+                );
+
+                colorOptions.appendChild(
+                    button
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   STORAGE
+========================================================= */
+
+function renderStorage(product) {
+
+    storageOptions.innerHTML = "";
+
+    Object.entries(product.storage)
+        .forEach(
+            ([storage, price]) => {
+
+                const button =
+                    document.createElement("button");
+
+                button.className =
+                    "storage-option";
+
+                button.textContent =
+                    storage;
+
+                if (storage === currentStorage) {
+
+                    button.classList.add(
+                        "active"
+                    );
+
+                }
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        currentStorage =
+                            storage;
+
+                        document
+                            .querySelectorAll(
+                                ".storage-option"
+                            )
+                            .forEach(item => {
+
+                                item.classList.remove(
+                                    "active"
+                                );
+
+                            });
+
+                        button.classList.add(
+                            "active"
+                        );
+
+                        updatePrice();
+
+                    }
+                );
+
+                storageOptions.appendChild(
+                    button
+                );
+
+            }
+        );
+
+
+    if (Object.keys(product.storage).length === 1) {
+
+        storageHeading.style.display =
+            "none";
+
+        storageOptions.style.display =
+            "none";
+
+    } else {
+
+        storageHeading.style.display =
+            "block";
+
+        storageOptions.style.display =
+            "flex";
+
+    }
+
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+function updatePrice() {
+
+    const product =
+        products[currentModel];
+
+    const price =
+        product.storage[currentStorage];
+
+    productPrice.textContent =
+        "$" + price;
+
+}
+
+
+/* =========================================================
+   SPECS
+========================================================= */
+
+function renderSpecs(product) {
+
+    dynamicSpecs.innerHTML = "";
+
+    Object.entries(product.specs)
+        .slice(0, 5)
+        .forEach(
+            ([name, value]) => {
+
+                const row =
+                    document.createElement("div");
+
+                row.className =
+                    "spec-item";
+
+                row.innerHTML = `
+                    <span>${name}</span>
+                    <span>${value}</span>
+                `;
+
+                dynamicSpecs.appendChild(
+                    row
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   FEATURE IMAGES + DESCRIPTION
+========================================================= */
+
+function renderFeatures(product) {
+
+    featureList.innerHTML = "";
+
+    product.features.forEach(
+        feature => {
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "feature-card";
+
+            card.innerHTML = `
+
+                <div class="feature-image">
+
+                    <img
+                        src="${feature.image}"
+                        alt="${feature.title}"
+                    >
+
+                </div>
+
+                <div class="feature-text">
+
+                    <div class="feature-number">
+                        ${feature.number}
+                    </div>
+
+                    <h3>
+                        ${feature.title}
+                    </h3>
+
+                    <p>
+                        ${feature.text}
+                    </p>
+
+                </div>
+
+            `;
+
+            featureList.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   COLOR SHOWCASE
+========================================================= */
+
+function renderColorShowcase(product) {
+
+    colorShowcase.innerHTML = "";
+
+    Object.entries(product.colors)
+        .forEach(
+            ([name, color]) => {
+
+                const card =
+                    document.createElement("div");
+
+                card.className =
+                    "color-card";
+
+                card.innerHTML = `
+
+                    <img
+                        src="${color.image}"
+                        alt="${name} ${product.name}"
+                    >
+
+                    <div class="color-card-label">
+                        ${name.toUpperCase()}
+                    </div>
+
+                `;
+
+                colorShowcase.appendChild(
+                    card
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   LARGE SPECS
+========================================================= */
+
+function renderLargeSpecs(product) {
+
+    largeSpecs.innerHTML = "";
+
+    Object.entries(product.specs)
+        .forEach(
+            ([name, value]) => {
+
+                const row =
+                    document.createElement("div");
+
+                row.className =
+                    "spec-row";
+
+                row.innerHTML = `
+
+                    <span>
+                        ${name}
+                    </span>
+
+                    <span>
+                        ${value}
+                    </span>
+
+                `;
+
+                largeSpecs.appendChild(
+                    row
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   ORDER
+========================================================= */
+
+document
+    .getElementById("orderButton")
+    .addEventListener(
+        "click",
+        () => {
+
+            const product =
+                products[currentModel];
+
+            const price =
+                product.storage[currentStorage];
+
+            showToast(
+                product.name +
+                " · " +
+                currentColor +
+                " · " +
+                currentStorage +
+                " · $" +
+                price +
+                " selected."
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(text) {
+
+    toast.textContent =
+        text;
+
+    toast.classList.add(
+        "show"
+    );
+
+    setTimeout(() => {
+
+        toast.classList.remove(
+            "show"
+        );
 
     }, 3000);
 
 }
 
 
-/* =====================================================
+/* =========================================================
    FINAL CTA
-===================================================== */
+========================================================= */
 
-function scrollToConfigure() {
+function goToConfigure() {
 
     document
         .getElementById("configure")
@@ -1967,56 +2735,11 @@ function scrollToConfigure() {
 }
 
 
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
 
-const revealElements =
-    document.querySelectorAll(
-        ".product-card, .color-card, .feature-content, .spec-row"
-    );
-
-
-const observer =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (
-                    entry.isIntersecting
-                ) {
-
-                    entry.target.style.opacity = "1";
-
-                    entry.target.style.transform =
-                        "translateY(0)";
-
-                }
-
-            });
-
-        },
-        {
-            threshold: .12
-        }
-    );
-
-
-revealElements.forEach(element => {
-
-    element.style.opacity = "0";
-
-    element.style.transform =
-        "translateY(30px)";
-
-    element.style.transition =
-        "opacity .7s ease, transform .7s ease";
-
-    observer.observe(element);
-
-});
-
+renderProduct();
 
 </script>
 
