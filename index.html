@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARC — Technology, Refined</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Helvetica, Arial, sans-serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.4;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            height: 52px;
+            background: rgba(245, 245, 247, 0.92);
+            border-bottom: 1px solid #d2d2d7;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #424245;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #000;
+        }
+
+        .nav-button {
+            background: #1d1d1f;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: calc(100vh - 52px);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+        }
+
+        .eyebrow {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #6e6e73;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(64px, 10vw, 150px);
+            line-height: 0.9;
+            letter-spacing: -8px;
+            font-weight: 700;
+            margin-bottom: 35px;
+        }
+
+        .hero h1 span {
+            color: #6e6e73;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            margin: auto;
+
+            font-size: 22px;
+            line-height: 1.45;
+            color: #6e6e73;
+        }
+
+        .hero-actions {
+            margin-top: 38px;
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .primary-btn {
+            background: #1d1d1f;
+            color: white;
+
+            padding: 13px 24px;
+            border-radius: 25px;
+
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .secondary-btn {
+            border: 1px solid #1d1d1f;
+            color: #1d1d1f;
+
+            padding: 12px 24px;
+            border-radius: 25px;
+
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        /* PRODUCT SECTION */
+
+        .product-section {
+            background: #000;
+            color: white;
+
+            min-height: 800px;
+            padding: 120px 8%;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .product-wrapper {
+            width: 100%;
+            max-width: 1300px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+
+            align-items: center;
+        }
+
+        .product-label {
+            color: #86868b;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .product-title {
+            font-size: clamp(55px, 7vw, 100px);
+            letter-spacing: -5px;
+            line-height: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .product-description {
+            color: #a1a1a6;
+            font-size: 20px;
+            max-width: 450px;
+            line-height: 1.5;
+        }
+
+        /* SIMPLE PRODUCT VISUAL */
+
+        .device-area {
+            height: 500px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+        }
+
+        .device {
+            width: 290px;
+            height: 420px;
+
+            border: 7px solid #333;
+            border-radius: 40px;
+
+            background: #111;
+
+            box-shadow:
+                0 30px 80px rgba(255,255,255,0.08);
+
+            position: relative;
+        }
+
+        .device::before {
+            content: "";
+
+            width: 90px;
+            height: 22px;
+
+            background: #000;
+
+            border-radius: 20px;
+
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .device-screen {
+            position: absolute;
+
+            left: 18px;
+            right: 18px;
+            top: 18px;
+            bottom: 18px;
+
+            border-radius: 28px;
+
+            border: 1px solid #292929;
+
+            display: flex;
+            align-items: flex-end;
+
+            padding: 25px;
+        }
+
+        .screen-text {
+            font-size: 40px;
+            font-weight: 600;
+            letter-spacing: -2px;
+        }
+
+        /* FEATURES */
+
+        .features {
+            padding: 140px 8%;
+            background: #f5f5f7;
+        }
+
+        .features-heading {
+            max-width: 1000px;
+            margin: auto;
+            margin-bottom: 90px;
+        }
+
+        .features-heading h2 {
+            font-size: clamp(50px, 7vw, 90px);
+            line-height: 0.95;
+            letter-spacing: -5px;
+        }
+
+        .features-heading h2 span {
+            color: #86868b;
+        }
+
+        .feature-grid {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            border-top: 1px solid #d2d2d7;
+        }
+
+        .feature {
+            padding: 40px 30px 50px 0;
+            border-bottom: 1px solid #d2d2d7;
+        }
+
+        .feature:not(:last-child) {
+            border-right: 1px solid #d2d2d7;
+            padding-right: 40px;
+        }
+
+        .feature:not(:first-child) {
+            padding-left: 40px;
+        }
+
+        .feature-number {
+            color: #86868b;
+            font-size: 13px;
+            margin-bottom: 50px;
+        }
+
+        .feature h3 {
+            font-size: 28px;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+        }
+
+        .feature p {
+            color: #6e6e73;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* FINAL CTA */
+
+        .final-section {
+            min-height: 650px;
+            background: #e8e8ed;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .final-content {
+            max-width: 850px;
+        }
+
+        .final-content h2 {
+            font-size: clamp(55px, 8vw, 110px);
+            line-height: 0.9;
+            letter-spacing: -6px;
+            margin-bottom: 30px;
+        }
+
+        .final-content p {
+            color: #6e6e73;
+            font-size: 21px;
+            max-width: 550px;
+            margin: auto;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #1d1d1f;
+            color: #86868b;
+
+            padding: 30px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+
+            .hero-text {
+                font-size: 18px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product-section {
+                padding: 90px 25px;
+            }
+
+            .product-wrapper {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .product-title {
+                letter-spacing: -3px;
+            }
+
+            .device-area {
+                height: 430px;
+            }
+
+            .features {
+                padding: 90px 25px;
+            }
+
+            .features-heading h2 {
+                letter-spacing: -3px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature,
+            .feature:not(:first-child),
+            .feature:not(:last-child) {
+                padding: 35px 0;
+                border-right: none;
+            }
+
+            .feature-number {
+                margin-bottom: 30px;
+            }
+
+            .final-content h2 {
+                letter-spacing: -3px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="logo">ARC.</div>
+
+        <ul class="nav-links">
+            <li><a href="#product">Product</a></li>
+            <li><a href="#technology">Technology</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+
+        <a href="#contact" class="nav-button">Explore</a>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                A different kind of technology.
+            </div>
+
+            <h1>
+                Built for <span>tomorrow.</span>
+            </h1>
+
+            <p class="hero-text">
+                Thoughtful hardware. Quiet software.
+                Technology designed to disappear into the way you live.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#product" class="primary-btn">
+                    Discover ARC
+                </a>
+
+                <a href="#technology" class="secondary-btn">
+                    Learn more
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCT -->
+
+    <section class="product-section" id="product">
+
+        <div class="product-wrapper">
+
+            <div>
+
+                <div class="product-label">
+                    ARC ONE — 2026
+                </div>
+
+                <h2 class="product-title">
+                    Less.<br>
+                    But better.
+                </h2>
+
+                <p class="product-description">
+                    A device engineered around the things that matter.
+                    No distractions. No unnecessary complexity.
+                    Just an experience that gets out of your way.
+                </p>
+
+            </div>
+
+
+            <div class="device-area">
+
+                <div class="device">
+
+                    <div class="device-screen">
+                        <div class="screen-text">
+                            ARC
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features" id="technology">
+
+        <div class="features-heading">
+
+            <h2>
+                Technology should feel
+                <span>obvious.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    01 — DESIGN
+                </div>
+
+                <h3>
+                    Nothing extra.
+                </h3>
+
+                <p>
+                    Every surface, button and interaction
+                    has a reason to exist. The result is
+                    technology that feels natural from day one.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    02 — PERFORMANCE
+                </div>
+
+                <h3>
+                    Fast where it matters.
+                </h3>
+
+                <p>
+                    Responsive hardware and carefully
+                    optimized software keep everything
+                    immediate, fluid and quiet.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    03 — PRIVACY
+                </div>
+
+                <h3>
+                    Yours means yours.
+                </h3>
+
+                <p>
+                    Your information belongs to you.
+                    ARC is designed around privacy instead
+                    of treating it as an afterthought.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL CTA -->
+
+    <section class="final-section" id="contact">
+
+        <div class="final-content">
+
+            <h2>
+                Make room<br>
+                for what matters.
+            </h2>
+
+            <p>
+                The next generation of personal technology
+                starts with doing less, better.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="#" class="primary-btn">
+                    Get started
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div>
+            <strong>ARC.</strong> © 2026
+        </div>
+
+        <div>
+            Designed with intention.
+        </div>
+
+    </footer>
+
+</body>
+</html>
